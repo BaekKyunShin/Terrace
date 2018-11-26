@@ -6,7 +6,7 @@ build:
 	sudo setcap CAP_NET_BIND_SERVICE=+eip ./bin/terrace
 
 update:
-  go build -x -o ./bin/terrace ./src
+	go build -x -o ./bin/terrace ./src
 	sudo setcap CAP_NET_BIND_SERVICE=+eip ./bin/terrace
 
 deploy:
