@@ -12,12 +12,11 @@
 
 <script>
 export default {
-  name: 'blogExample',
+  name: 'blog',
   data() {
     return {
       index: 
-    [{"title":"[Blog/VueJS] 2. 개발환경 세팅","uri":"/blog/2018/10/11/blogvuejs-2-development-environment/","date":"2018/10/11"}]
-    }
+    [{"title":"첫글","uri":"/blog/2018/12/12/first-posting/","date":"2018/12/12"}]}
   }
 }
 </script>

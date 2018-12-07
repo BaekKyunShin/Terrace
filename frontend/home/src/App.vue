@@ -4,9 +4,9 @@
     <p>
       <router-link to="/">Main</router-link>
       &nbsp;
-      <router-link to="/About">About</router-link>
+      <router-link to="/about">About</router-link>
       &nbsp;
-      <router-link to="/Blog">Blog</router-link>
+      <router-link to="/blog">Blog</router-link>
     </p>
 
     <p>
