@@ -5,6 +5,8 @@
       <router-link to="/">Main</router-link>
       &nbsp;
       <router-link to="/About">About</router-link>
+      &nbsp;
+      <router-link to="/Blog">Blog</router-link>
     </p>
 
     <p>
