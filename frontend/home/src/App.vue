@@ -8,22 +8,16 @@
       &nbsp;
       <router-link to="/blog">Blog</router-link>
     </p>
-
     <p>
       <router-view></router-view>
     </p>
-    <main></main>
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
 
 export default {
-  name: 'app',
-  components: {
-    'main': Main
-  }
+  name: 'app'
 }
 </script>
 
