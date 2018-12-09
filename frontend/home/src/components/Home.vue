@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="home">
     <p>This is Main page!</p>
     <img alt="Vue logo" src="../assets/logo.png">
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'main',
+  name: 'home',
 }
 </script>
 

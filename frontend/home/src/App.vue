@@ -2,7 +2,7 @@
   <div id="app">
     <H1> BK's Blog </H1>
     <p>
-      <router-link to="/">Main</router-link>
+      <router-link to="/">Home</router-link>
       &nbsp;
       <router-link to="/about">About</router-link>
       &nbsp;
@@ -23,7 +23,7 @@ export default {
 
 <style>
 #app {
-    font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

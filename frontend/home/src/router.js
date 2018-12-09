@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Meta from 'vue-meta'
 
-import Main from './components/Main.vue'
+import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Blog from './components/Blog.vue'
 
@@ -20,8 +20,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'Home',
+      component: Home
     },
   
     {
