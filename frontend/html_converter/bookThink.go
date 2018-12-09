@@ -21,7 +21,7 @@ type ArticleMetadata struct {
 const (
 	EXT_HTML  string = ".html"
 	EXT_MD    string = ".md"
-	DirPrefix string = "../home/public/blog_contents"
+	DirPrefix string = "../home/public/bookThinkContents"
 )
 
 var articles []string
@@ -110,7 +110,7 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		to := bytes.Index(htmlSource, []byte("</h1>"))
 
 		// Get Uri
-		uri := strings.Replace(htmlPath, "../home/public/blog_contents/", "/blog/", 1)
+		uri := strings.Replace(htmlPath, "../home/public/bookThinkContents/", "/bookThinkBlog/", 1)
 		uri = strings.Replace(uri, ".html", "/", 1)
 
 		// Get date

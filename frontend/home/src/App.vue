@@ -6,7 +6,9 @@
       &nbsp;
       <router-link to="/about">About</router-link>
       &nbsp;
-      <router-link to="/blog">Blog</router-link>
+      <router-link to="/bookThinkBlog">책과 사유</router-link>
+      &nbsp;
+      <router-link to="/devRecordBlog">개발과 기록</router-link>
     </p>
     <p>
       <router-view></router-view>
