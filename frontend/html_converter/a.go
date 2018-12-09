@@ -21,10 +21,13 @@ type ArticleMetadata struct {
 const (
 	EXT_HTML  string = ".html"
 	EXT_MD    string = ".md"
-	DirPrefix string = "../home/public/bookThinkContents"
+	DirPrefix string = "../home/public/blog_contents"
+	BookPath  string = "blog_contents/book_think"
+	DevPath   string = "blog_contents/dev_record"
 )
 
-var articles []string
+var bookArticles []string
+var devArticles []string
 
 func execRmOldHtml(path string) {
 	if (len(path) > len(EXT_HTML)) &&
@@ -68,9 +71,13 @@ func execPandocMdToHtml(path string) {
 		}
 		//log.Printf("pandoc output: %q\n", out.String())
 
-		articles = append(articles, path[0:len(path)-len(EXT_MD)]+EXT_HTML)
-
-		log.Printf("generated document: %q\n", result)
+		if strings.Contains(path, BookPath) {
+			bookArticles = append(bookArticles, path[0:len(path)-len(EXT_MD)]+EXT_HTML)
+			log.Printf("generated document: %q\n", result)
+		} else if strings.Contains(path, DevPath) {
+			devArticles = append(devArticles, path[0:len(path)-len(EXT_MD)]+EXT_HTML)
+			log.Printf("generated document: %q\n", result)
+		}
 	}
 }
 
@@ -97,6 +104,7 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 	r := regexp.MustCompile("(19|20)[0-9][0-9][- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])")
 
 	var metadata []ArticleMetadata
+	var uri string
 
 	for _, htmlPath := range htmlPaths {
 		// Get title
@@ -110,8 +118,13 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		to := bytes.Index(htmlSource, []byte("</h1>"))
 
 		// Get Uri
-		uri := strings.Replace(htmlPath, "../home/public/bookThinkContents/", "/bookThinkBlog/", 1)
-		uri = strings.Replace(uri, ".html", "/", 1)
+		if strings.Contains(htmlPath, BookPath) {
+			uri = strings.Replace(htmlPath, "../home/public/blog_contents/book_think/", "/bookThinkBlog/", 1)
+			uri = strings.Replace(uri, ".html", "/", 1)
+		} else if strings.Contains(htmlPath, DevPath) {
+			uri = strings.Replace(htmlPath, "../home/public/blog_contents/dev_record/", "/devRecordBlog/", 1)
+			uri = strings.Replace(uri, ".html", "/", 1)
+		}
 
 		// Get date
 		date := r.FindString(htmlPath)
@@ -134,17 +147,21 @@ func main() {
 	}
 	iterate(DirPrefix, dirInfo)
 
-	fmt.Println("\n\n articles \n\n")
-	for _, article := range articles {
-		fmt.Println(article)
+	fmt.Println("\n\n bookArticles \n\n")
+	for _, bookArticle := range bookArticles {
+		fmt.Println(bookArticle)
+	}
+
+	fmt.Println("\n\n devArticles \n\n")
+	for _, devArticle := range devArticles {
+		fmt.Println(devArticle)
 	}
 
 	// Reverse articles' order
 	i := 0
-	k := len(articles) - 1
+	k := len(bookArticles) - 1
 	for {
-		articles[i], articles[k] = articles[k], articles[i]
-
+		bookArticles[i], bookArticles[k] = bookArticles[k], bookArticles[i]
 		i++
 		k--
 		if i >= k {
@@ -152,14 +169,33 @@ func main() {
 		}
 	}
 
-	metadata := GetArticleMetadata(articles)
+	i = 0
+	k = len(devArticles) - 1
+	for {
+		devArticles[i], devArticles[k] = devArticles[k], devArticles[i]
+		i++
+		k--
+		if i >= k {
+			break
+		}
+	}
 
-	b, err := json.Marshal(metadata)
+	bookMetadata := GetArticleMetadata(bookArticles)
+	devMetadata := GetArticleMetadata(devArticles)
+
+	bb, err := json.Marshal(bookMetadata)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("\n\n json \n\n")
-	fmt.Println(string(b))
+	db, err := json.Marshal(devMetadata)
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	fmt.Println("\n\n book json \n\n")
+	fmt.Println(string(bb))
+
+	fmt.Println("\n\n dev json \n\n")
+	fmt.Println(string(db))
 }
