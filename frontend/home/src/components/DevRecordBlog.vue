@@ -15,14 +15,15 @@ export default {
   data() {
     return {
       index: 
-    [{"title":"첫글","uri":"/blog/2018/12/12/first-posting/","date":"2018/12/12"},{"title":"첫글","uri":"/blog/2018/12/12/first-posting/","date":"2018/12/12"}]}
+  [{"title":"첫글","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}]}
   }
 }
 </script>
 
 <style scoped>
 .blog-list-element {
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 a:link { 
@@ -36,7 +37,7 @@ a:visited {
 }
 
 a:hover { 
-  color: #3073b3;
+  color: #5858fa;
   font-weight: 350;
 }
 </style>

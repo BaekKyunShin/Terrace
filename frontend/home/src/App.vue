@@ -21,6 +21,27 @@ export default {
 </script>
 
 <style>
+html {
+  z-index: 1;
+  position: relative;
+}
+html:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background-image: url("./assets/profilePicture.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: content-box;
+  background-size: 100%;
+  opacity: 0.1!important; 
+  filter: alpha(opacity=100);
+}
+
 #app {
   font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
   font-weight: 300;
@@ -53,9 +74,9 @@ a:visited {
 a:hover { 
   color: #3073b3;
   font-weight: 350;
-  -webkit-transition: color 1s ease-out;
-  -moz-transition: color 1s ease-out;
-  -o-transition: color 1s ease-out;
-  transition: color 1s ease-out;
+  -webkit-transition: color 0.3s  ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
 }
 </style>
