@@ -30,14 +30,12 @@ export default {
 }
 
 #personalName {
-  font-size: 17px;
-  background: -webkit-linear-gradient(#eee, #111111);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 10px;
+  font-size: 18px;
+  color: #a4a4a4;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
-
-#personalIntro {
+  #personalIntro {
   font-size: 17px;
   color: #778899;
 }

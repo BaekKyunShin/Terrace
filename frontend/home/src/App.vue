@@ -1,15 +1,12 @@
 <template>
   <div id="app">
     <H1> BK's Blog </H1>
-    <p>
+    <nav>
       <router-link to="/">홈</router-link>
-      &nbsp;
       <router-link to="/about">소개</router-link>
-      &nbsp;
       <router-link to="/bookThinkBlog">책과 사유</router-link>
-      &nbsp;
       <router-link to="/devRecordBlog">개발과 기록</router-link>
-    </p>
+    </nav>
     <p>
       <router-view></router-view>
     </p>
@@ -34,6 +31,15 @@ export default {
   margin-top: 47px;
 }
 
+
+nav {
+  padding-bottom: 10px; 
+}
+
+a {
+  padding: 10px;
+}
+
 a:link { 
   color: #585858; 
   text-decoration: none;
@@ -47,5 +53,9 @@ a:visited {
 a:hover { 
   color: #3073b3;
   font-weight: 350;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
 }
 </style>
