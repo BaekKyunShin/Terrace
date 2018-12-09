@@ -2,28 +2,50 @@
   <div id="app">
     <H1> BK's Blog </H1>
     <p>
-      <router-link to="/">Main</router-link>
+      <router-link to="/">홈</router-link>
       &nbsp;
-      <router-link to="/About">About</router-link>
+      <router-link to="/about">소개</router-link>
+      &nbsp;
+      <router-link to="/bookThinkBlog">책과 사유</router-link>
+      &nbsp;
+      <router-link to="/devRecordBlog">개발과 기록</router-link>
     </p>
-
     <p>
       <router-view></router-view>
     </p>
-    <main></main>
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
 
 export default {
-  name: 'app',
-  components: {
-    'main': Main
-  }
+  name: 'app'
 }
 </script>
 
 <style>
+#app {
+  font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 47px;
+}
+
+a:link { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:visited { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:hover { 
+  color: #3073b3;
+  font-weight: 350;
+}
 </style>

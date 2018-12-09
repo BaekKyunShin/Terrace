@@ -99,6 +99,19 @@ func main() {
 		fmt.Println(article)
 	}
 
+	// Reverse articles' order
+	i := 0
+	k := len(articles) - 1
+	for {
+		articles[i], articles[k] = articles[k], articles[i]
+
+		i++
+		k--
+		if i >= k {
+			break
+		}
+	}
+
 	b, err := json.Marshal(articles)
 	if err != nil {
 		log.Fatal(err)
