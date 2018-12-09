@@ -1,6 +1,5 @@
 <template>
   <div>
-  <p>Hello, world!</p>
     <div class="blog-list-element" v-for="i in index" :key="i">
       <a :href="i.uri">{{ i.title }}</a>
       <br>
@@ -24,5 +23,20 @@ export default {
 <style scoped>
 .blog-list-element {
   margin-bottom: 10px;
+}
+
+a:link { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:visited { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:hover { 
+  color: #3073b3;
+  font-weight: 350;
 }
 </style>

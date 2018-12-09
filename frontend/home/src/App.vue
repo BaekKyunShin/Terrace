@@ -2,9 +2,9 @@
   <div id="app">
     <H1> BK's Blog </H1>
     <p>
-      <router-link to="/">Home</router-link>
+      <router-link to="/">홈</router-link>
       &nbsp;
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">소개</router-link>
       &nbsp;
       <router-link to="/bookThinkBlog">책과 사유</router-link>
       &nbsp;
@@ -32,5 +32,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 47px;
+}
+
+a:link { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:visited { 
+  color: #585858; 
+  text-decoration: none;
+}
+
+a:hover { 
+  color: #3073b3;
+  font-weight: 350;
 }
 </style>
