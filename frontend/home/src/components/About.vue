@@ -20,6 +20,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+body {
+  background-image: url("../assets/profilePicture.jpg");
+}
+
 #profilePicture {
   border-radius: 15px;
   width: 150px;
@@ -30,11 +34,10 @@ export default {
 }
 
 #personalName {
-  font-size: 17px;
-  background: -webkit-linear-gradient(#eee, #111111);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 10px;
+  font-size: 18px;
+  color: #a4a4a4;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 #personalIntro {

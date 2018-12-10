@@ -22,7 +22,8 @@ export default {
 
 <style scoped>
 .blog-list-element {
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 a:link { 
@@ -36,7 +37,7 @@ a:visited {
 }
 
 a:hover { 
-  color: #3073b3;
+  color: #5858fa;
   font-weight: 350;
 }
 </style>
