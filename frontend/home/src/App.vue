@@ -21,26 +21,8 @@ export default {
 </script>
 
 <style>
-html {
-  z-index: 1;
-  position: relative;
-}
-html:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1000px;
-  background-image: url("./assets/profilePicture.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-origin: content-box;
-  background-size: 100%;
-  opacity: 0.1!important; 
-  filter: alpha(opacity=100);
-}
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
 
 #app {
   font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
@@ -51,7 +33,6 @@ html:after {
   color: #2c3e50;
   margin-top: 47px;
 }
-
 
 nav {
   padding-bottom: 10px; 
