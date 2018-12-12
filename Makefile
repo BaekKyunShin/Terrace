@@ -10,5 +10,5 @@ update:
 	sudo setcap CAP_NET_BIND_SERVICE=+eip ./bin/terrace
 
 deploy:
-	git push git@13.209.22.243:~/terrace_hook master
+	git push git@52.79.174.216:~/terrace_hook master
 
