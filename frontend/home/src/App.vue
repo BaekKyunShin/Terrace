@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <H1> BK's Blog </H1>
+    <H1> 귀퉁이 서재</H1>
     <nav>
       <router-link to="/">홈</router-link>
       <router-link to="/about">소개</router-link>

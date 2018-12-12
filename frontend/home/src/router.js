@@ -37,7 +37,7 @@ export default new Router({
       component: BookThinkBlog,
       children: [
         {
-          path: ':year/:month/:day/:title',
+          path: ':year1/:month1/:day1/:title1',
         }
       ]
     }, 
@@ -48,7 +48,7 @@ export default new Router({
       component: DevRecordBlog,
       children: [
         {
-          path: ':year/:month/:day/:title',
+          path: ':year2/:month2/:day2/:title2',
         }
       ]
     }
