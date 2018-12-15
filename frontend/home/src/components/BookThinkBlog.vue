@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div v-if="year1 !== undefined" v-html="articleHtmlSource">
+  <div id="blog">
+    <div class="blog-contents-element" v-if="year1 !== undefined" v-html="articleHtmlSource">
     </div>
     <div v-else>
       <div class="blog-list-element" v-for="i in index" :key="i">
-        <router-link :to="i.uri">{{ i.title }}</router-link>
+        <router-link :to="i.uri" class="blog-title">{{ i.title }}</router-link>
         <br>
-        {{ i.date }}
+        <div class="blog-date"> {{ i.date }} </div>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
       index: 
-[{"title":"테스트","uri":"/bookThinkBlog/2018/12/09/first-posting/","date":"2018/12/09"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+[{"title":"테스트","uri":"/bookThinkBlog/2018/12/09/first-posting/","date":"2018/12/09"},{"title":"알베르 까뮈 - 이방인","uri":"/bookThinkBlog/2017/04/03/book-stranger/","date":"2017/04/03"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
 ,
     year1 : this.$route.params.year1,
     month1 : this.$route.params.month1,
@@ -52,9 +52,29 @@ export default {
 </script>
 
 <style scoped>
+#blog {
+  min-height: 300px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
 .blog-list-element {
   margin-top: 5px;
   margin-bottom: 20px;
+}
+
+.blog-contents-element {
+  text-align: left;
+}
+
+.blog-title {
+  font-size: 1.05em;
+}
+
+.blog-date {
+  font-size: 0.8em;
+  color: #9F9EA2;
 }
 
 a:link { 
