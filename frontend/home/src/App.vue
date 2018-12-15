@@ -40,14 +40,6 @@ nav {
 
 a {
   padding: 10px;
-}
-
-a:link { 
-  color: #585858; 
-  text-decoration: none;
-}
-
-a:visited { 
   color: #585858; 
   text-decoration: none;
 }
@@ -55,7 +47,7 @@ a:visited {
 a:hover { 
   color: #3073b3;
   font-weight: 350;
-  -webkit-transition: color 0.3s  ease-out;
+  -webkit-transition: color 0.3s ease-out;
   -moz-transition: color 0.3s ease-out;
   -o-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
