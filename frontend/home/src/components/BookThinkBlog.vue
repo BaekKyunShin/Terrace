@@ -66,6 +66,7 @@ export default {
 
 .blog-contents-element {
   text-align: left;
+  font-size: 1.05em;
 }
 
 .blog-title {

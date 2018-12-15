@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div v-if="year2 !== undefined" v-html="articleHtmlSource">
+  <div id="blog">
+    <div class="blog-contents-element" v-if="year2 !== undefined" v-html="articleHtmlSource">
     </div>
     <div v-else>
       <div class="blog-list-element" v-for="i in index" :key="i">
-        <router-link :to="i.uri">{{ i.title }}</router-link>
+        <router-link :to="i.uri" class="blog-title">{{ i.title }}</router-link>
         <br>
-        {{ i.date }}
+        <div class="blog-date">{{ i.date }}</div>
       </div>
     </div>
   </div>
@@ -53,23 +53,39 @@ export default {
 </script>
 
 <style scoped>
+#blog {
+  min-height: 300px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
 .blog-list-element {
   margin-top: 5px;
   margin-bottom: 20px;
 }
 
-a:link { 
-  color: #585858; 
+.blog-contents-element {
+  text-align: left;
+  font-size: 1.05em;
+}
+
+.blog-title {
+  font-size: 1.05em;
+}
+
+.blog-date {
+  font-size: 0.8em;
+  color: #9F9EA2;
+}
+
+a {
+  color: #3073B3;
   text-decoration: none;
 }
 
-a:visited { 
-  color: #585858; 
-  text-decoration: none;
-}
-
-a:hover { 
-  color: #5858fa;
+a:hover {
+  color: #53ADF1;
   font-weight: 350;
 }
 </style>
