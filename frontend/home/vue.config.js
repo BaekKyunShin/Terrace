@@ -10,8 +10,10 @@ const productionPlugins = [
 	"/about",
         "/bookThinkBlog",
         "/devRecordBlog",
-        "/bookThinkBlog/2018/11/27/book-theMiddlePassage"
-    ],
+        "/bookThinkBlog/2018/11/27/book-theMiddlePassage",
+	"/bookThinkBlog/2018/10/09/book-ancientFutures",
+	"/bookThinkBlog/2018/09/10/book-hisWifeforaHat"
+],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
     }),

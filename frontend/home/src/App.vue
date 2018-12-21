@@ -3,13 +3,11 @@
     <H1> 귀퉁이 서재</H1>
     <nav>
       <router-link to="/">홈</router-link>
-      <router-link to="/about">소개</router-link>
-      <router-link to="/bookThinkBlog">책과 사유</router-link>
-      <router-link to="/devRecordBlog">개발과 기록</router-link>
+      <router-link to="/about/">소개</router-link>
+      <router-link to="/bookThinkBlog/">책과 사유</router-link>
+      <router-link to="/devRecordBlog/">개발과 기록</router-link>
     </nav>
-    <p>
-      <router-view></router-view>
-    </p>
+    <router-view></router-view>
   </div>
 </template>
 
