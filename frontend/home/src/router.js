@@ -17,8 +17,8 @@ const DevRecordBlog = () => import("./components/DevRecordBlog.vue");
 //  - NotFound component is not going to be used in normal situation.
 
 
-Vue.use(Router)
-Vue.use(Meta)
+Vue.use(Router);
+Vue.use(Meta);
 
 export default new Router({
   mode: 'history',
