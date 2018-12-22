@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <H1> 귀퉁이 서재</H1>
     <nav>
       <router-link to="/">홈</router-link>
@@ -30,6 +31,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 47px;
+}
+
+H1 {
+  font-family: 'Do Hyeon';
+  font-size: 40px;
+  font-weight: 100px;
 }
 
 nav {

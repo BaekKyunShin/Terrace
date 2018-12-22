@@ -1,5 +1,6 @@
 <template>
   <div id="about">
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
     <img id="profilePicture" alt="Profile picture" src="../assets/profilePicture.jpg">
     <div id="personalInfo">  
       <div id="personalName">
@@ -34,6 +35,7 @@ body {
 }
 
 #personalName {
+  font-family: 'Charm', cursive;
   font-size: 18px;
   color: #a4a4a4;
   padding-top: 10px;
