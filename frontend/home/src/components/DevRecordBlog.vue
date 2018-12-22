@@ -41,10 +41,18 @@ export default {
     }
   },
   methods: {
+    totheTop: function() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
     getPage: function() {
       if (this.year2 === undefined) {
         return;
       }
+
+      // Load page after the scroll is on the top
+      this.totheTop();
+
       var htmlDocUri = 
         '/blog_contents/dev_record/'
         + this.year2 + '/'
