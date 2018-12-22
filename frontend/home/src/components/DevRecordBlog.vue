@@ -15,6 +15,9 @@
 <script>
 export default {
   name: 'devRecordBlog',
+  mounted: function() {
+    this.getPage();
+  },
   data() {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
@@ -28,12 +31,17 @@ export default {
     articleHtmlSource : ""
     }
   },
-    watch: {
+  watch: {
     '$route' (to) {
       this.year2 = to.params.year2;
       this.month2 = to.params.month2;
       this.day2 = to.params.day2;
       this.title2 = to.params.title2;
+      this.getPage();
+    }
+  },
+  methods: {
+    getPage: function() {
       if (this.year2 === undefined) {
         return;
       }
