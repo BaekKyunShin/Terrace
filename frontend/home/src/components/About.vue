@@ -40,6 +40,7 @@ body {
   color: #a4a4a4;
   padding-top: 10px;
   padding-bottom: 5px;
+  letter-spacing: 2px;
 }
 
 #personalIntro {

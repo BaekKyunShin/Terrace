@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <H1> 귀퉁이 서재</H1>
     <nav>
       <router-link to="/">홈</router-link>
@@ -24,7 +23,7 @@ export default {
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
 
 #app {
-  font-family: 'Source Sans Pro', 'Spoqa Han Sans', Helvetica, Arial, sans-serif;
+  font-family: 'Spoqa Han Sans', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,14 +32,10 @@ export default {
   margin-top: 47px;
 }
 
-H1 {
-  font-family: 'Do Hyeon';
-  font-size: 40px;
-  font-weight: 100px;
-}
-
 nav {
-  padding-bottom: 10px; 
+  padding-bottom: 10px;
+  font-weight: 350;
+  font-size: 17px;
 }
 
 a {
