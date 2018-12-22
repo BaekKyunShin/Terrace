@@ -21,6 +21,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
+
 body {
   background-image: url("../assets/profilePicture.jpg");
 }
@@ -44,6 +46,8 @@ body {
 }
 
 #personalIntro {
+  font-family: 'Noto Sans Kannada';
+  font-size: 18px;
   font-size: 17px;
   color: #778899;
 }
