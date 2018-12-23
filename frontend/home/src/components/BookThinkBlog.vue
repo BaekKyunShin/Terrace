@@ -15,6 +15,9 @@
 <script>
 export default {
   name: 'bookThinkBlog',
+  mounted: function() {
+    this.getPage();
+  },
   data() {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
@@ -28,15 +31,28 @@ export default {
     articleHtmlSource : ""
     }
   },
-    watch: {
+  watch: {
     '$route' (to) {
       this.year1 = to.params.year1;
       this.month1 = to.params.month1;
       this.day1 = to.params.day1;
       this.title1 = to.params.title1;
+      this.getPage();
+      }
+  },
+  methods: {
+    totheTop: function() {
+      document.body.scrollTop = 0 ; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    getPage: function() {
       if (this.year1 === undefined) {
         return;
       }
+
+      // Load page after the scroll is on the top
+      this.totheTop();
+      
       var htmlDocUri = 
         '/blog_contents/book_think/'
         + this.year1 + '/'

@@ -1,5 +1,6 @@
 <template>
   <div id="about">
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
     <img id="profilePicture" alt="Profile picture" src="../assets/profilePicture.jpg">
     <div id="personalInfo">  
       <div id="personalName">
@@ -20,6 +21,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
+
 body {
   background-image: url("../assets/profilePicture.jpg");
 }
@@ -28,19 +31,24 @@ body {
   border-radius: 15px;
   width: 150px;
   height: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #personalInfo {
   font-family: Courier New;
 }
 
 #personalName {
+  font-family: 'Charm', cursive;
   font-size: 18px;
   color: #a4a4a4;
   padding-top: 10px;
   padding-bottom: 5px;
+  letter-spacing: 2px;
 }
 
 #personalIntro {
+  font-family: 'Noto Sans Kannada';
+  font-size: 18px;
   font-size: 17px;
   color: #778899;
 }
