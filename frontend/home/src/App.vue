@@ -34,6 +34,7 @@ export default {
 
 nav {
   padding-bottom: 10px;
+  margin-bottom: 25px;
   font-weight: 350;
   font-size: 17px;
 }
