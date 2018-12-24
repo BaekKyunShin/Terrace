@@ -57,17 +57,17 @@ nav {
 }
 
 .menu-bar:hover {
-  color: #650d04;
+  color: #2c3e50;
   background: radial-gradient(circle, transparent 1%, #ffffff 0%) center/15000%;
   border-radius: 15px; 
-  -webkit-transition: background 0.8s;
-  -moz-transition: background 0.8s;
-  -o-transition: background 0.8s;
-  transition: background 0.8s;
+  -webkit-transition: background 1.1s;
+  -moz-transition: background 1.1s;
+  -o-transition: background 1.1s;
+  transition: background 1.1s;
 }
 
 .menu-bar:active {
-  background-color: #cddfff;
+  background-color: #dee5ed;
   background-size: 100%;
   -webkit-transition: background 0s;
   -moz-transition: background 0s;
