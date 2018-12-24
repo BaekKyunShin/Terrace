@@ -35,7 +35,7 @@ body {
 
 #personalName {
   font-size: 15px;
-  color: #a4a4a4;
+  color: #9F9EA2;
   padding-top: 10px;
   padding-bottom: 5px;
   letter-spacing: 1.5px;
@@ -45,6 +45,6 @@ body {
   font-family: 'Noto Sans Kannada';
   font-size: 18px;
   font-size: 17px;
-  color: #778899;
+  color: #486684;
 }
 </style>
