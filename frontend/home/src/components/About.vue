@@ -1,6 +1,5 @@
 <template>
   <div id="about">
-    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
     <img id="profilePicture" alt="Profile picture" src="../assets/profilePicture.jpg">
     <div id="personalInfo">  
       <div id="personalName">
@@ -31,19 +30,15 @@ body {
   border-radius: 15px;
   width: 150px;
   height: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-#personalInfo {
-  font-family: Courier New;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 #personalName {
-  font-family: 'Charm', cursive;
-  font-size: 18px;
+  font-size: 15px;
   color: #a4a4a4;
   padding-top: 10px;
   padding-bottom: 5px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 #personalIntro {

@@ -53,7 +53,7 @@ nav {
 .menu-bar:hover {
   color: DarkGray;
   background: radial-gradient(circle, transparent 1%, #ffffff 0%) center/15000%;
-  border-radius: 60% 20% / 10% 50%; 
+  border-radius: 15px; 
   -webkit-transition: background 0.8s;
   -moz-transition: background 0.8s;
   -o-transition: background 0.8s;
