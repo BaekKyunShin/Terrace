@@ -96,12 +96,11 @@ export default {
 }
 
 a {
-  color: #3073B3;
+  color: #8a300f;
   text-decoration: none;
 }
 
 a:hover {
-  color: #53ADF1;
-  font-weight: 350;
+  color: #b84014;
 }
 </style>
