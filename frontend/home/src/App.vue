@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <H1> 귀퉁이 서재</H1>
+    <H1 class="blog-title"> 귀퉁이 서재</H1>
     <nav>
       <router-link class="menu-bar" to="/">홈</router-link>
       <router-link class="menu-bar" to="/about/">소개</router-link>
@@ -32,11 +32,17 @@ export default {
   margin-top: 47px;
 }
 
+/*
+.blog-title{
+  color: #790604
+}
+*/
+
 nav {
   padding-bottom: 10px;
   margin-bottom: 25px;
-  font-weight: 350;
-  font-size: 17px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .menu-bar {
@@ -51,7 +57,7 @@ nav {
 }
 
 .menu-bar:hover {
-  color: DarkGray;
+  color: #650d04;
   background: radial-gradient(circle, transparent 1%, #ffffff 0%) center/15000%;
   border-radius: 15px; 
   -webkit-transition: background 0.8s;
