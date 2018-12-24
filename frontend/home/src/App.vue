@@ -48,7 +48,7 @@ nav {
 .menu-bar {
   background-position: center;
   padding: 10px;
-  color: #585858; 
+  color: #666666; 
   text-decoration: none;
   -webkit-transition: color 0.9s;
   -moz-transition: color 0.9s;
