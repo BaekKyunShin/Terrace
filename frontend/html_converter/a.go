@@ -13,9 +13,10 @@ import (
 )
 
 type ArticleMetadata struct {
-	Title string `json:"title"`
-	Uri   string `json:"uri"`
-	Date  string `json:"date"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
+	Uri    string `json:"uri"`
+	Date   string `json:"date"`
 }
 
 const (
@@ -113,15 +114,22 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 	var uri string
 
 	for _, htmlPath := range htmlPaths {
-		// Get title
 		htmlSource, err := ioutil.ReadFile(htmlPath)
 		if err != nil {
 			log.Fatal(err.Error())
 		}
 
-		from := bytes.Index(htmlSource, []byte(">"))
-		from += len(">")
-		to := bytes.Index(htmlSource, []byte("</h1>"))
+		// Get title
+		titleFrom := bytes.Index(htmlSource, []byte(">"))
+		titleFrom += len(">")
+		titleTo := bytes.Index(htmlSource, []byte("</h1>"))
+
+		// Get author, get first ">" after title
+		authorFromTemp := titleTo + len("</h1>")
+		authorFrom := bytes.Index(htmlSource[authorFromTemp:], []byte(">"))
+		authorFrom += len(">")
+		authorFrom += authorFromTemp
+		authorTo := bytes.Index(htmlSource, []byte("</h2>"))
 
 		// Get Uri
 		if strings.Contains(htmlPath, BookPath) {
@@ -136,12 +144,13 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		date := r.FindString(htmlPath)
 
 		metadata = append(metadata, ArticleMetadata{
-			Title: string(htmlSource[from:to]),
-			Uri:   uri,
-			Date:  date,
+			Title:  string(htmlSource[titleFrom:titleTo]),
+			Author: string(htmlSource[authorFrom:authorTo]),
+			Uri:    uri,
+			Date:   date,
 		})
 	}
-
+	fmt.Println(metadata)
 	return metadata
 }
 
