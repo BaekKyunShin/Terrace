@@ -30,6 +30,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 47px;
+  margin: auto;
+  max-width: 800px;
 }
 
 /*
