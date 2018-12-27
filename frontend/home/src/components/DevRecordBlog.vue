@@ -76,7 +76,7 @@ export default {
 }
 
 .blog-list-element {
-  max-width: 350px;
+  max-width: 330px;
   font-size: 1.05em;
   text-align: left;
   margin: auto;
