@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <H1> 귀퉁이 서재</H1>
+    <H1 class="blog-title"> 귀퉁이 서재</H1>
     <nav>
       <router-link class="menu-bar" to="/">홈</router-link>
       <router-link class="menu-bar" to="/about/">소개</router-link>
@@ -30,19 +30,27 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 47px;
+  margin: auto;
+  max-width: 800px;
 }
+
+/*
+.blog-title{
+  color: #790604
+}
+*/
 
 nav {
   padding-bottom: 10px;
   margin-bottom: 25px;
-  font-weight: 350;
-  font-size: 17px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .menu-bar {
   background-position: center;
   padding: 10px;
-  color: #585858; 
+  color: #666666; 
   text-decoration: none;
   -webkit-transition: color 0.9s;
   -moz-transition: color 0.9s;
@@ -51,17 +59,17 @@ nav {
 }
 
 .menu-bar:hover {
-  color: DarkGray;
+  color: #2c3e50;
   background: radial-gradient(circle, transparent 1%, #ffffff 0%) center/15000%;
-  border-radius: 60% 20% / 10% 50%; 
-  -webkit-transition: background 0.8s;
-  -moz-transition: background 0.8s;
-  -o-transition: background 0.8s;
-  transition: background 0.8s;
+  border-radius: 15px; 
+  -webkit-transition: background 1.1s;
+  -moz-transition: background 1.1s;
+  -o-transition: background 1.1s;
+  transition: background 1.1s;
 }
 
 .menu-bar:active {
-  background-color: #cddfff;
+  background-color: #dee5ed;
   background-size: 100%;
   -webkit-transition: background 0s;
   -moz-transition: background 0s;

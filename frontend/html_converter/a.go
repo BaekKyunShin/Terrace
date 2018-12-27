@@ -13,9 +13,10 @@ import (
 )
 
 type ArticleMetadata struct {
-	Title string `json:"title"`
-	Uri   string `json:"uri"`
-	Date  string `json:"date"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
+	Uri    string `json:"uri"`
+	Date   string `json:"date"`
 }
 
 const (
@@ -113,16 +114,23 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 	var uri string
 
 	for _, htmlPath := range htmlPaths {
-		// Get title
 		htmlSource, err := ioutil.ReadFile(htmlPath)
 		if err != nil {
 			log.Fatal(err.Error())
 		}
 
-		from := bytes.Index(htmlSource, []byte(">"))
-		from += len(">")
-		to := bytes.Index(htmlSource, []byte("</h1>"))
+		// Get title
+		titleFrom := bytes.Index(htmlSource, []byte(">"))
+		titleFrom += len(">")
+		titleTo := bytes.Index(htmlSource, []byte("</h1>"))
 
+		// Get author, get first ">" after title
+		authorFromTemp := titleTo + len("</h1>")
+		authorFrom := bytes.Index(htmlSource[authorFromTemp:], []byte(">"))
+		authorFrom += len(">")
+		authorFrom += authorFromTemp
+		authorTo := bytes.Index(htmlSource, []byte("</h2>"))
+		fmt.Println(authorTo == -1)
 		// Get Uri
 		if strings.Contains(htmlPath, BookPath) {
 			uri = strings.Replace(htmlPath, "../home/public/blog_contents/book_think/", "/bookThinkBlog/", 1)
@@ -135,13 +143,23 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		// Get date
 		date := r.FindString(htmlPath)
 
-		metadata = append(metadata, ArticleMetadata{
-			Title: string(htmlSource[from:to]),
-			Uri:   uri,
-			Date:  date,
-		})
+		// if authorTo is -1, it's devRecordBlog
+		if authorTo == -1 {
+			metadata = append(metadata, ArticleMetadata{
+				Title:  string(htmlSource[titleFrom:titleTo]),
+				Author: "myself",
+				Uri:    uri,
+				Date:   date,
+			})
+		} else {
+			metadata = append(metadata, ArticleMetadata{
+				Title:  string(htmlSource[titleFrom:titleTo]),
+				Author: string(htmlSource[authorFrom:authorTo]),
+				Uri:    uri,
+				Date:   date,
+			})
+		}
 	}
-
 	return metadata
 }
 
@@ -166,7 +184,6 @@ func insertJsonToBlogComponent(json string, PathBlogComponent string) {
 	fmt.Println("-- old json end -- ")
 
 	componentSource = componentSource[0:from] + json + componentSource[to+1:]
-	fmt.Println(componentSource)
 
 	ioutil.WriteFile(PathBlogComponent, []byte(componentSource), 0644)
 }

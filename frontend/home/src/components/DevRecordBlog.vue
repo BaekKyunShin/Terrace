@@ -5,8 +5,8 @@
     <div v-else>
       <div class="blog-list-element" v-for="i in index" :key="i">
         <router-link :to="i.uri" class="blog-title">{{ i.title }}</router-link>
-        <br>
-        <div class="blog-date">{{ i.date }}</div>
+        <span class="blog-date">{{ i.date }}</span>
+				<hr class="separate-line">
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
       index: 
-[{"title":"첫글","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+[{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
 ,
     year2 : this.$route.params.year2,
     month2 : this.$route.params.month2,
@@ -71,37 +71,50 @@ export default {
 <style scoped>
 #blog {
   min-height: 300px;
-  max-width: 800px;
   margin: auto;
   margin-bottom: 50px;
 }
 
 .blog-list-element {
-  margin-top: 5px;
-  margin-bottom: 20px;
+  max-width: 350px;
+  font-size: 1.05em;
+  text-align: left;
+  margin: auto;
 }
 
 .blog-contents-element {
   text-align: left;
   font-size: 1.05em;
+  max-width: 800px;
 }
 
 .blog-title {
+  color: #8a300f; 
   font-size: 1.05em;
+  text-align: left;
 }
 
 .blog-date {
   font-size: 0.8em;
   color: #9F9EA2;
+	float: right;
+	margin-top: 4px;
+}
+
+.separate-line {
+  margin-top: 11px;
+  margin-bottom: 11px;
+  border: 0;
+  height: 1px;
+  background: #f2f2f2;
 }
 
 a {
-  color: #3073B3;
+  color: #8a300f;
   text-decoration: none;
 }
 
 a:hover {
-  color: #53ADF1;
-  font-weight: 350;
+  color: #b84014;
 }
 </style>
