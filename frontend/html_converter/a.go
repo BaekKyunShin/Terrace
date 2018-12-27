@@ -130,7 +130,7 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		authorFrom += len(">")
 		authorFrom += authorFromTemp
 		authorTo := bytes.Index(htmlSource, []byte("</h2>"))
-
+		fmt.Println(authorTo == -1)
 		// Get Uri
 		if strings.Contains(htmlPath, BookPath) {
 			uri = strings.Replace(htmlPath, "../home/public/blog_contents/book_think/", "/bookThinkBlog/", 1)
@@ -143,14 +143,23 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		// Get date
 		date := r.FindString(htmlPath)
 
-		metadata = append(metadata, ArticleMetadata{
-			Title:  string(htmlSource[titleFrom:titleTo]),
-			Author: string(htmlSource[authorFrom:authorTo]),
-			Uri:    uri,
-			Date:   date,
-		})
+		// if authorTo is -1, it's devRecordBlog
+		if authorTo == -1 {
+			metadata = append(metadata, ArticleMetadata{
+				Title:  string(htmlSource[titleFrom:titleTo]),
+				Author: "myself",
+				Uri:    uri,
+				Date:   date,
+			})
+		} else {
+			metadata = append(metadata, ArticleMetadata{
+				Title:  string(htmlSource[titleFrom:titleTo]),
+				Author: string(htmlSource[authorFrom:authorTo]),
+				Uri:    uri,
+				Date:   date,
+			})
+		}
 	}
-	fmt.Println(metadata)
 	return metadata
 }
 
@@ -175,7 +184,6 @@ func insertJsonToBlogComponent(json string, PathBlogComponent string) {
 	fmt.Println("-- old json end -- ")
 
 	componentSource = componentSource[0:from] + json + componentSource[to+1:]
-	fmt.Println(componentSource)
 
 	ioutil.WriteFile(PathBlogComponent, []byte(componentSource), 0644)
 }
