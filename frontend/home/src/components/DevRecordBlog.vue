@@ -102,8 +102,8 @@ export default {
 }
 
 .separate-line {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 11px;
+  margin-bottom: 11px;
   border: 0;
   height: 1px;
   background: #f2f2f2;
