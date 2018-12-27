@@ -3,7 +3,7 @@
     <img id="profilePicture" alt="Profile picture" src="../assets/profilePicture.jpg">
     <div id="personalInfo">  
       <div id="personalName">
-        <p> Baek Kyun Shin </p>
+        <p> BAEK KYUN SHIN </p>
       </div>
       <div id="personalIntro">
         <p> 문학을 좋아하는 아마추어 개발자 </p>
