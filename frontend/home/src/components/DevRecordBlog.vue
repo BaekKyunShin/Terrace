@@ -13,33 +13,19 @@
 </template>
 
 <script>
+import HighlightJS from 'highlight.js/lib/highlight.js'
+//var HighlightJS = require("highlight.js/lib/highlight.js");
+
+// Add languages manually to decrease size of my website
+HighlightJS.registerLanguage('vim', require('highlight.js/lib/languages/vim'));
+HighlightJS.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+HighlightJS.registerLanguage('python', require('highlight.js/lib/languages/python'));
+
+// eslint-disable-next-line
+import _ from 'highlight.js/styles/xcode.css'
+
 export default {
   name: 'devRecordBlog',
-  mounted: function() {
-    this.getPage();
-  },
-  data() {
-    return {
-      // __INSERTION_POSITION__ // DONT CHANGE!!
-      index: 
-[{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
-,
-    year2 : this.$route.params.year2,
-    month2 : this.$route.params.month2,
-    day2 : this.$route.params.day2,
-    title2 : this.$route.params.title2,
-    articleHtmlSource : ""
-    }
-  },
-  watch: {
-    '$route' (to) {
-      this.year2 = to.params.year2;
-      this.month2 = to.params.month2;
-      this.day2 = to.params.day2;
-      this.title2 = to.params.title2;
-      this.getPage();
-    }
-  },
   methods: {
     totheTop: function() {
       document.body.scrollTop = 0; // For Safari
@@ -63,7 +49,45 @@ export default {
         .then(response => response.text())
         .then(responseText => this.articleHtmlSource = responseText);
     }
+  }, 
+  mounted: function() {
+    this.getPage();
+    // Find all code block and apply syntax highlighting
+    [].forEach.call(document.querySelectorAll('code'), function(el) {
+      HighlightJS.highlightBlock(el);
+    });
+  },
+
+  updated: function() {
+    // Find all code block and apply syntax highlighting
+    [].forEach.call(document.querySelectorAll('code'), function(el) {
+      HighlightJS.highlightBlock(el);
+    });
+  }, 
+  
+  data() {
+    return {
+      // __INSERTION_POSITION__ // DONT CHANGE!!
+      index: 
+[{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+,
+    year2 : this.$route.params.year2,
+    month2 : this.$route.params.month2,
+    day2 : this.$route.params.day2,
+    title2 : this.$route.params.title2,
+    articleHtmlSource : ""
+    }
+  },
+  watch: {
+    '$route' (to) {
+      this.year2 = to.params.year2;
+      this.month2 = to.params.month2;
+      this.day2 = to.params.day2;
+      this.title2 = to.params.title2;
+      this.getPage();
+    }
   }
+
 }
 
 </script>

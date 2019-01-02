@@ -16,9 +16,12 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	// otherwise, send the file
 
 	log.Println(r.URL.Path)
-
+	
+	// r.URL.Path = "/blog/2018/10/11/blogvuejs-2-development-environment/"
 	path := r.URL.Path[len("/"):]
-
+	
+	// path = "blog/2018/10/11/blogvuejs-2-development-environment/"
+	
 	source, err := ioutil.ReadFile(WebRoot + path)
 	if err != nil {
 		source, err = ioutil.ReadFile(WebRoot + path + "/index.html")
