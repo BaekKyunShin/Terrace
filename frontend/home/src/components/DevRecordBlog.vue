@@ -19,16 +19,46 @@ import HighlightJS from 'highlight.js/lib/highlight.js'
 // Add languages manually to decrease size of my website
 HighlightJS.registerLanguage('vim', require('highlight.js/lib/languages/vim'));
 HighlightJS.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+HighlightJS.registerLanguage('python', require('highlight.js/lib/languages/python'));
 
 // eslint-disable-next-line
 import _ from 'highlight.js/styles/xcode.css'
 
 export default {
   name: 'devRecordBlog',
+  methods: {
+    totheTop: function() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    getPage: function() {
+      if (this.year2 === undefined) {
+        return;
+      }
+
+      // Load page after the scroll is on the top
+      this.totheTop();
+
+      var htmlDocUri = 
+        '/blog_contents/dev_record/'
+        + this.year2 + '/'
+        + this.month2 + '/'
+        + this.day2 + '/'
+        + this.title2 + '.html';
+      fetch(htmlDocUri)
+        .then(response => response.text())
+        .then(responseText => this.articleHtmlSource = responseText);
+    }
+  }, 
   mounted: function() {
     this.getPage();
+    // Find all code block and apply syntax highlighting
+    [].forEach.call(document.querySelectorAll('code'), function(el) {
+      HighlightJS.highlightBlock(el);
+    });
   },
-  update: function() {
+
+  updated: function() {
     // Find all code block and apply syntax highlighting
     [].forEach.call(document.querySelectorAll('code'), function(el) {
       HighlightJS.highlightBlock(el);
@@ -56,31 +86,8 @@ export default {
       this.title2 = to.params.title2;
       this.getPage();
     }
-  },
-  methods: {
-    totheTop: function() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    },
-    getPage: function() {
-      if (this.year2 === undefined) {
-        return;
-      }
-
-      // Load page after the scroll is on the top
-      this.totheTop();
-
-      var htmlDocUri = 
-        '/blog_contents/dev_record/'
-        + this.year2 + '/'
-        + this.month2 + '/'
-        + this.day2 + '/'
-        + this.title2 + '.html';
-      fetch(htmlDocUri)
-        .then(response => response.text())
-        .then(responseText => this.articleHtmlSource = responseText);
-    }
   }
+
 }
 
 </script>
