@@ -1,5 +1,4 @@
 <template>
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <div id="app">
     <H1 class="blog-title"> 귀퉁이 서재</H1>
     <nav>
