@@ -217,6 +217,7 @@ export default {
 
 .meta {
   margin-bottom: 50px;
+  font-size: 0.9em;
 }
 
 a { 
