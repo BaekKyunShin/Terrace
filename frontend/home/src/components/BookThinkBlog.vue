@@ -4,8 +4,11 @@
       <article>
         <div class="inner-title-container">
           <h1 id="inner-title">{{ title }}</h1>
-          <div id="inner-author">{{ author }}</div>
-          <div class="meta">{{ year }} / {{ month }} / {{ day }}</div>
+          <div class="inner-authorDate-container">  
+            <span id="inner-author">{{ author }}</span>
+             | 
+            <span id="inner-date">{{ year }}.{{ month }}.{{ day }}</span>
+          </div>
         </div>
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
@@ -29,12 +32,12 @@ export default {
   metaInfo() {
     if(this.year === undefined) {
       return {
-        title: 'Blog',
+        title: '책과 사유',
         meta: [
           { charset: 'utf-8' },
           {
             'property': 'og:title',
-            'content': 'Blog',
+            'content': '책과 사유',
             'template': chunk => `${chunk} | bksin`,
             'vmid': 'og:title'
           },
@@ -49,21 +52,16 @@ export default {
     } else {
       return {
         title: this.titleForMeta,
-        author: this.authorForMeta,
         meta: [
           { charset: 'utf-8' },
           {
             'property': 'og:title',
             'content': this.title,
-            'template': chunk => `${chunk} | bkshn`,
+            'template': chunk => `${chunk} | bkshin`,
             'vmid': 'og:title'
           },
-          {
-            'property': 'og:author',
-            'content': this.author,
-            'template': chunk => `${chunk} | bkshin`,
-            'vmid': 'og:author'
-          },
+          // Mobile Optimization
+          { name: 'viewport', content: 'width=device-width, initial-scale=1'},
           {
             'property': 'og:description',
             'content': 'Thank you for reading my article',
@@ -102,7 +100,7 @@ export default {
       author.style.display = "none";
       // It is for og:title, author
       this.titleForMeta = title.innerHTML;
-      this.authorForMeta = author.innerHTML;
+      this.author = author.innerHTML;
     }
   },
 
@@ -116,6 +114,8 @@ export default {
     month : this.$route.params.month1,
     day : this.$route.params.day1,
     title : this.$route.params.title1,
+    author : this.author,
+    titleForMeta : "",
     articleHtmlSource : ""
     }
   },
@@ -208,16 +208,17 @@ export default {
 }
 
 .inner-title-container > h1{
+  margin-top: 40px;
   margin-bottom: 10px;
+}
+
+.inner-authorDate-container {
+  color: #8a300f;
+  margin-bottom: 60px;
 }
 
 #article-content {
   text-align: left;
-}
-
-.meta {
-  margin-bottom: 50px;
-  font-size: 0.9em;
 }
 
 a { 
