@@ -219,6 +219,7 @@ export default {
 
 #article-content {
   text-align: left;
+  font-size: 1.05em;
 }
 
 a { 
