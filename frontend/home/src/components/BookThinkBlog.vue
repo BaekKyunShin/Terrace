@@ -3,8 +3,9 @@
     <div id="blog-contents-element" v-if="year !== undefined">
       <article>
         <div class="inner-title-container">
-          <h1 id="inner-title">{{ title  }}</h1>
-          <p class="meta">{{ year }} / {{ month }} / {{ day }}</p>
+          <h1 id="inner-title">{{ title }}</h1>
+          <div id="inner-author">{{ author }}</div>
+          <div class="meta">{{ year }} / {{ month }} / {{ day }}</div>
         </div>
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
@@ -48,6 +49,7 @@ export default {
     } else {
       return {
         title: this.titleForMeta,
+        author: this.authorForMeta,
         meta: [
           { charset: 'utf-8' },
           {
@@ -55,6 +57,12 @@ export default {
             'content': this.title,
             'template': chunk => `${chunk} | bkshn`,
             'vmid': 'og:title'
+          },
+          {
+            'property': 'og:author',
+            'content': this.author,
+            'template': chunk => `${chunk} | bkshin`,
+            'vmid': 'og:author'
           },
           {
             'property': 'og:description',
@@ -83,6 +91,7 @@ export default {
     // Not the blog main page which has lists of name of articles.
     // Find all h1 tags, and choose second h1. It is real title of this doc.
     var titles = blogContents.querySelectorAll('h1');
+    var author = blogContents.querySelector('h2');
     if(titles.length <= 1) {
       return;
     } else {
@@ -90,8 +99,10 @@ export default {
       var title  = blogContents.querySelector('#inner-title')
       title.innerHTML = titles[1].innerHTML;
       titles[1].style.display = "none";
-      // It is for og:title
+      author.style.display = "none";
+      // It is for og:title, author
       this.titleForMeta = title.innerHTML;
+      this.authorForMeta = author.innerHTML;
     }
   },
 
@@ -200,8 +211,12 @@ export default {
   margin-bottom: 10px;
 }
 
+#article-content {
+  text-align: left;
+}
+
 .meta {
-  margin: 0;
+  margin-bottom: 50px;
 }
 
 a { 
