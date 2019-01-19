@@ -4,7 +4,7 @@
       <article>
         <div class="inner-title-container">
           <h1 id="inner-title">{{ title }}</h1>
-          <div class="meta">{{ year }} / {{ month }} / {{ day }}</div>
+          <div id="inner-date">{{ year }} / {{ month }} / {{ day }}</div>
         </div>
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
@@ -207,6 +207,7 @@ export default {
 }
 
 .inner-title-container > h1 {
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
@@ -214,9 +215,10 @@ export default {
   text-align: left;
 }
 
-.meta {
-  margin-bottom: 50px;
+#inner-date {
+  color: #8a300f;
   font-size: 0.9em;
+  margin-bottom: 40px;
 }
 
 a {
