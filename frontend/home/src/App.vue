@@ -111,4 +111,16 @@ nav {
   transition: background 0s;
 }
 
+figcaption {
+  opacity: 0.5;
+  color: #8a300f;
+  font-size:0.9em;
+  font-style:italic;
+  text-align: center;
+}
+
+a > href {
+  text-decoration: none;
+}
+
 </style>
