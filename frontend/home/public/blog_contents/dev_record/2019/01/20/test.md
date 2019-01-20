@@ -4,7 +4,7 @@
 
 우선, Oracle VM Virtual Machine을 설치한 뒤 실행합니다.
 
-[Virtual Box CentOS 설치](http://ccm3.net/archives/23382) 본 블로그를 참고하여 CentOS를 설치한다. 여러 세팅이 있는데 모두 다 할 필요 없이 아래 사항만 세팅해주면 됩니다.
+[Reference1](http://ccm3.net/archives/23382) 본 블로그를 참고하여 CentOS를 설치한다. 여러 세팅이 있는데 모두 다 할 필요 없이 아래 사항만 세팅해주면 됩니다.
 
 메모리 크기: 3072MB 정도  
 하드 디스크: '지금 새 가상 하드 디스크 만들기'  

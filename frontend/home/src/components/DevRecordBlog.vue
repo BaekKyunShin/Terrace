@@ -227,7 +227,6 @@ export default {
 }
 
 a {
-  color: #8a300f;
   text-decoration: none;
 }
 

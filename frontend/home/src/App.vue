@@ -111,6 +111,14 @@ nav {
   transition: background 0s;
 }
 
+img {
+  max-width:100%;
+  -moz-box-shadow: 1px 1px 10px #ccc;
+  -webkit-box-shadow: 1px 1px 10px #ccc;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 5px;
+}
+
 figcaption {
   opacity: 0.5;
   color: #8a300f;
@@ -119,8 +127,22 @@ figcaption {
   text-align: center;
 }
 
-a > href {
+a {
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+  color: #b84014;
   text-decoration: none;
+	font-size: 0.9em;
+}
+
+a:hover {
+  color: #e65019;
+  -webkit-transition: color 0.4s ease-out;
+  -moz-transition: color 0.4s ease-out;
+  -o-transition: color 0.4s ease-out;
+  transition: color 0.4s ease-out;
 }
 
 </style>
