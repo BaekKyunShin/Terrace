@@ -40,6 +40,40 @@ export default {
 }
 */
 
+pre {
+	white-space: pre-wrap;                 /* CSS3 browsers  */
+	white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+	white-space: -pre-wrap;                /* Opera 4 thru 6 */
+	white-space: -o-pre-wrap;              /* Opera 7 and up */
+	word-wrap: break-word;                 /* IE 5.5+ and up */
+	/* overflow-x: auto; */                /* Firefox 2 only */
+	/* width: 99%; */		       /* only if needed */
+  background: #fafafa !important;
+  padding: 20px;
+  line-height: 1.3em;
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+  border-radius: 5px;
+}
+
+pre > code {
+  padding: 0;
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.85em;
+  background: #fafafa !important;
+  padding: 1px 5px 1px 5px;
+  display: inline !important;
+}
+
+.hljs {
+  background: #fafafa !important;
+  padding: 0 !important;
+}
+
 nav {
   padding-bottom: 10px;
   margin-bottom: 25px;

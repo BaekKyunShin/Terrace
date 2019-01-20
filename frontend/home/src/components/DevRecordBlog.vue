@@ -28,6 +28,10 @@ import HighlightJS from 'highlight.js/lib/highlight.js'
 HighlightJS.registerLanguage('vim', require('highlight.js/lib/languages/vim'));
 HighlightJS.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
 HighlightJS.registerLanguage('python', require('highlight.js/lib/languages/python'));
+HighlightJS.registerLanguage('vim', require('highlight.js/lib/languages/vim'));
+HighlightJS.registerLanguage('shell', require('highlight.js/lib/languages/shell'));
+HighlightJS.registerLanguage('go', require('highlight.js/lib/languages/go'));
+HighlightJS.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
 
 // eslint-disable-next-line
 import _ from 'highlight.js/styles/xcode.css'
@@ -137,7 +141,7 @@ export default {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
       index: 
-[{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+[{"title":"테스트용","author":"myself","uri":"/devRecordBlog/2019/01/20/test/","date":"2019/01/20"},{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
 ,
     year : this.$route.params.year2,
     month : this.$route.params.month2,
