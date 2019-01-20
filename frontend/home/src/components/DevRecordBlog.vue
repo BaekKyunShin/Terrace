@@ -141,7 +141,7 @@ export default {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
       index: 
-[{"title":"[Blog] 1. 가상환경 설치 및 실행","author":"myself","uri":"/devRecordBlog/2019/01/20/CentOS/","date":"2019/01/20"},{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+[{"title":"[Blog] 2. 네트워크 연결 및 커널","author":"myself","uri":"/devRecordBlog/2019/01/21/blog-network/","date":"2019/01/21"},{"title":"[Blog] 1. 가상환경 설치 및 실행","author":"myself","uri":"/devRecordBlog/2019/01/20/CentOS/","date":"2019/01/20"},{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
 ,
     year : this.$route.params.year2,
     month : this.$route.params.month2,
