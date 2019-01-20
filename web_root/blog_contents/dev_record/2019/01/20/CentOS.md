@@ -1,4 +1,8 @@
-#[블로그] 1. 가상환경 설치 및 실행
+#[Blog] 1. 가상환경 설치 및 실행
+
+바닥부터 시작해서 블로그를 띄우는 전 과정을 차근차근 정리하려고 합니다.
+이 모든 과정은 명재 선생님[myeongjae.kim](https://myeongjae.kim/)의 지도가 있었기에 가능했습니다. 저는 웹에 대한 지식이 전무했습니다. 그렇기에 알아가는 과정을 하나 하나 정리했고, 저 같이 바닥부터 시작해서 블로그를 만들고자하는 분들에게 조금이나마 도움이 되었으면 합니다. 잘못된 점이 있다면 가감없이 피드백해주시기 바랍니다.
+<br>
 
 ###가상머신 CentOS 설치
 
@@ -22,15 +26,18 @@ INSTALLATION DESTINATION: Automatic patitioning selected
 
 CONFIGURATION의 USER SETTINGS에서  
 Root 비밀번호 설정 후, CREATE USER에 name과 password를 설정합니다. 여기서 Make this user administrator를 꼭 클릭해줍니다.
+
+CentOS를 설치하는데만 시간이 다소 걸립니다. 중간에 잘못하면 삭제 후 다시 설치해야하는 ** 불상사** 가 발생할 수 있으니 차근차근 하시기를 권장합니다.
+
 <br>
 
 ###CentOS 실행
 
-CentOS가 설치되는데 시간이 다소 소요됩니다. 모두 완료되면 Reboot를 클릭합니다.
+CentOS가 설치가 모두 완료되면 Reboot를 클릭합니다.
 
-![CentOS 실행화면](https://s3.ap-northeast-2.amazonaws.com/cdn.bkshin.com/devRecord/1_1.PNG)
+<img alt="CentOS 실행화면" src="../../../../../../src/assets/devRecord/2019/01/20/profilePicture.jpg">
 
-로그인이 되면 정상적으로 작동하는 것입니다.
+로그인이 되면 위 그림과 같이 정상적으로 작동하는 것을 볼 수 있습니다.
 <br>
 
 ###Reference

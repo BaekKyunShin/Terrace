@@ -17,5 +17,6 @@ export default {
   opacity: 0.8;
   height: 300px;
   width: 250px;
+  box-shadow: none;
 }
 </style>

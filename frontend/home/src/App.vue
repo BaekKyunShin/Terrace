@@ -90,6 +90,7 @@ nav {
   -moz-transition: color 0.9s;
   -o-transition: color 0.9s;
   transition: color 0.9s;
+  font-size: 1.0em;
 }
 
 .menu-bar:hover {
@@ -132,13 +133,13 @@ a {
   -moz-transition: color 1s ease-out;
   -o-transition: color 1s ease-out;
   transition: color 1s ease-out;
-  color: #b84014;
+  color: #8a300f;
   text-decoration: none;
 	font-size: 0.9em;
 }
 
 a:hover {
-  color: #e65019;
+  color: #b84014;
   -webkit-transition: color 0.4s ease-out;
   -moz-transition: color 0.4s ease-out;
   -o-transition: color 0.4s ease-out;

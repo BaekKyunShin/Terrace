@@ -141,7 +141,7 @@ export default {
     return {
       // __INSERTION_POSITION__ // DONT CHANGE!!
       index: 
-[{"title":"[블로그] 1. 가상환경 설치 및 실행","author":"myself","uri":"/devRecordBlog/2019/01/20/test/","date":"2019/01/20"},{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
+[{"title":"[Blog] 1. 가상환경 설치 및 실행","author":"myself","uri":"/devRecordBlog/2019/01/20/CentOS/","date":"2019/01/20"},{"title":"첫 글","author":"myself","uri":"/devRecordBlog/2018/12/12/thanks-to/","date":"2018/12/12"}] // __INSERTION_POSITION_END__ // DONT CHANGE!!
 ,
     year : this.$route.params.year2,
     month : this.$route.params.month2,
@@ -218,6 +218,7 @@ export default {
 #article-content {
   text-align: left;
   font-size: 1.05em;
+  line-height: 1.8em;
 }
 
 #inner-date {
