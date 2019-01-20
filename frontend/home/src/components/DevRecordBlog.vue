@@ -217,7 +217,7 @@ export default {
 
 #article-content {
   text-align: left;
-  font-size: 1.05em;
+  font-size: 1.1em;
   line-height: 1.8em;
 }
 
