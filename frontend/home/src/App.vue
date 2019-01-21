@@ -21,6 +21,7 @@ export default {
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 #app {
   font-family: 'Spoqa Han Sans', sans-serif;
