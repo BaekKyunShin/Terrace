@@ -4,7 +4,7 @@
       <article>
         <div class="inner-title-container">
           <h1 id="inner-title">{{ title }}</h1>
-          <div id="inner-date">{{ year }} / {{ month }} / {{ day }}</div>
+          <div id="inner-date">{{ year }}.{{ month }}.{{ day }}</div>
         </div>
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
