@@ -1,0 +1,28 @@
+<h1 id="blog---3.-네트워크-포트포워딩">BLOG - 3. 네트워크 포트포워딩</h1>
+<h3 id="putty란"><strong>PuTTY란?</strong></h3>
+<p>본 블로그 개발 프로젝트에서는 PuTTY를 사용해 작업할 겁니다. PuTTY(이하 푸티)는 가상 단말기 프로그램입니다. 서버는 물리적으로 떨어져 있어도 단말 장비를 통해서 원격으로 접속하여 작업할 필요가 있는데 이때 윈도우같은 개인 pc 운영체제에서도 서버로 접속할 수 있도록 물리적인 단말장비가 아닌 논리적인 가상 단말기를 제공합니다. <a href="https://dololak.tistory.com/24">(Reference1)</a></p>
+<p>푸티로 VirtualBox CentOS에 연결하여 앞으로는 CentOS가 아닌 푸티로 작업을 할 겁니다. CentOS는 작업시 느리고(키보드를 누르는 때와 화면에 해당 글씨가 디스플레이되는 때의 시간 차가 아주 미세하게 있음), 화면도 예쁘지 않습니다. 따라서 작업 환경을 더 좋게 하기 위해 푸티로 원격 접속을 해 개발환경을 세팅하는 겁니다.</p>
+<p><br></p>
+<h3 id="네트워크-포트포워딩"><strong>네트워크 포트포워딩</strong></h3>
+<p>푸티로 원격 접속을 하기에 앞서 <strong>포트포워딩</strong>부터 해줘야 합니다. 포트포워딩이란 무엇인지 알아봅시다.</p>
+<p>한 집에서 하나의 IP를 할당 받았다고 가정합시다. IP는 하나지만 집에는 여러 PC가 있을 수 있습니다. 그러면 하나의 IP로 여러대의 PC를 지원해줘야합니다. 이럴 때 공유기를 통해 각 PC별로 개별 IP를 할당해줄 수 있습니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/22/3_1.PNG" alt="외부IP, 내부IP" /><figcaption>외부IP, 내부IP</figcaption>
+</figure>
+<p>여기서 공유기의 IP는 전세계에서 유일한 IP입니다. <strong>(공인 IP, 외부 IP라고 합니다.)</strong></p>
+<p>하지만 공유기가 집안의 PC들에게 할당해준 IP는 개별 IP이기 때문에 우리 집에서만 접속이 가능합니다. <strong>(사설 IP, 내부 IP라고 합니다.)</strong> 철수네 집에서의 사설 IP와 우리 집에서의 사설 IP가 똑같을 수 있습니다. 하지만 문제되지는 않습니다. 우리 집의 사설 IP를 철수가 알더라도 사설 IP로 외부에서 접속할 수 없습니다. 공인 IP로는 접속할 수 있지만 사설 IP는 외부와 독립적인 존재라서 접속이 불가합니다.</p>
+<p>그렇다면 철수네 집에서 우리 집의 사설 IP로 접속하려면 어떻게 해야할까요?</p>
+<p>바로 우리 집의 공인 IP와 사설 IP를 연결해주는 겁니다. 이럴 때 필요한 게 바로 <strong>포트포워딩</strong>입니다.</p>
+<p>첫번째 PC은 1번포트, 두번째 PC는 2번포트, 세번째 PC는 3번포트.. 이런 식으로 사설 IP 별로 포트를 지정주면 됩니다. 철수가 우리집의 공인 IP로 접속한 뒤 2번포트로 요청하면 두번째 PC와 연결이 되는 것입니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/22/3_2.PNG" alt="21번 port 요청" /><figcaption>21번 port 요청</figcaption>
+</figure>
+<p>아래와 같은 방식으로 포트포워딩을 해줬다고 합시다. 철수는 공유기(공인 IP)인 61.43.52.108:21로 접속하면 우리집의 192.168.0.20의 사설 IP로 연결이 가능합니다. IP 뒤에 붙는 :21이 21번 포트를 의미합니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/22/3_3.PNG" alt="Port Forwarding" /><figcaption>Port Forwarding</figcaption>
+</figure>
+<p>이런식으로 공유기에게 A포트 요청이 오면 PC1로 연결해주고 B포트 요청이 오면 PC2로 연결해주라고 지정해주는 것이 포트포워딩입니다. <a href="http://storytown.tistory.com/14">(Reference2)</a></p>
+<p>푸티를 철수네 집이라고 생각하고, VirtualBox의 CentOS를 우리 집이라고 생각하면 됩니다. CentOS 네트워크를 포트워딩해두면 푸티에서 원격으로 접속을 할 수 있는 겁니다.</p>
+<p>자, 이제 푸티와 포트포워딩에 대해 배웠으니 푸티를 통해 VirtualBox로 연결하는 법에 대해 배우도록 하겠습니다. <br></p>
+<h3 id="reference">Reference</h3>
+<p><a href="https://dololak.tistory.com/24">Reference1 (https://dololak.tistory.com/24)</a><br /><a href="http://storytown.tistory.com/14">Reference2 (http://storytown.tistory.com/14)</a></p>

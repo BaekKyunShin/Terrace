@@ -33,7 +33,7 @@ CentOS를 설치하는데만 시간이 다소 걸립니다. 중간에 잘못하�
 
 CentOS가 설치가 모두 완료되면 Reboot를 클릭합니다.   
 
-![CentOS 실행 화면](https://cdn.bkshin.com/devRecord/1_1.PNG)
+![CentOS 실행 화면](https://cdn.bkshin.com/devRecord/2019/01/20/1_1.PNG)
 
 로그인이 되면 위 그림과 같이 정상적으로 작동하는 것을 볼 수 있습니다.
 <br>
