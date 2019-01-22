@@ -26,7 +26,11 @@ const productionPlugins = [
 	    "/bookThinkBlog/2017/06/27/book-ryusiwha",
 	    "/bookThinkBlog/2017/05/18/book-existentialism",
 	    "/bookThinkBlog/2017/04/03/book-strangerm",
-      "/devRecordBlog/2018/12/12/thanks-to"
+      "/devRecordBlog/2018/12/12/thanks-to",
+      "/devRecordBlog/2019/01/20/blog-CentOS",
+      "/devRecordBlog/2019/01/21/blog-network",
+      "/devRecordBlog/2019/01/22/blog-portForwarding",
+      "/devRecordBlog/2019/01/23/blog-puttyConnection"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
