@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-a764f1ee.3046f130.css" rel="prefetch"><link href="/css/chunk-f365bfdc.95c15fae.css" rel="prefetch"><link href="/js/chunk-a764f1ee.19f0eefd.js" rel="prefetch"><link href="/js/chunk-f365bfdc.fdabe907.js" rel="prefetch"><link href="/css/app.fea44361.css" rel="preload" as="style"><link href="/js/app.16476f45.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.fea44361.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-a764f1ee.3046f130.css"><script charset="utf-8" src="/js/chunk-a764f1ee.19f0eefd.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="blog-setting1 :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-479f0c76="" id="blog"><div data-v-479f0c76="" id="blog-contents-element"><article data-v-479f0c76=""><div data-v-479f0c76="" class="inner-title-container"><h1 data-v-479f0c76="" id="inner-title">BLOG - 5. 개발환경세팅 I</h1><div data-v-479f0c76="" id="inner-date">2019.01.24</div></div><div data-v-479f0c76="" id="article-content"><h1 id="blog---5.-개발환경세팅-i" style="display: none;">BLOG - 5. 개발환경세팅 I</h1>
+<p>이제 개발환경세팅을 위한 각 종 패키지를 설치하겠습니다.</p>
+<h3 id="zsh-설치"><strong>ZSH 설치</strong></h3>
+<p>Z Shell (zsh)는 기본 터미널보다 조금 더 예쁘고 사용하기 좋은 쉘이라고 보면 됩니다. home directory에서 아래 커맨드를 입력해주면 설치가 됩니다.</p>
+<pre class="bash"><code class="hljs">sudo yum -y install zsh</code></pre>
+<p>yum은 레드헷 (Red Hat/CentOs/Fedora) 계열에서 사용할 수 있는 자동설치 도구입니다. <a href="https://conory.com/blog/42596">(Reference1)</a></p>
+<h3 id="wget설치">Wget설치</h3>
+<p>Wget은 웹 서버로부터 콘텐츠를 가져오는 프로그램을 뜻합니다. 월드 와이드 웹(www)과 get의 합성어이며, HTTP, HTTPS, FTP 프로토콜을 통해 내려받기를 지원합니다. <a href="https://ko.wikipedia.org/wiki/Wget">(Reference2)</a></p>
+<pre class="bash"><code class="hljs">sudo yum -y install wget</code></pre>
+<h3 id="zsh-completions-설치">zsh-completions 설치</h3>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span> /etc/yum.repos.d/</code></pre>
+<p>위 경로에는 yum 저장소 파일이 있습니다. 저장소 파일에는 저장소에 접속할 저장소 URL 정보가 담겨있는데 이 파일에서 찾은 저장소 URL에 접속해 yum이 패키지를 다운로드하도록 되어있습니다. 저장소 파일은 <strong>파일이름.repo</strong> 형식으로 되어있는데 한 저장소 파일에 여러 저장소 정보가 있을 수 있다는 것이 특징입니다. <a href="https://conory.com/blog/42596">(Reference1)</a></p>
+<p>아래 커맨드를 입력해서 zsh-completions 설치는 위한 repo를 추가해준 뒤 zsh-completions를 설치합니다. 모두 yum.repos.d에서 합니다.</p>
+<pre class="bash"><code class="hljs">sudo wget https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/CentOS_7/shells:zsh-users:zsh-completions.repo</code></pre>
+<pre class="bash"><code class="hljs">sudo yum -y install zsh-completions</code></pre>
+<h3 id="git-설치">git 설치</h3>
+<p>home directory로 경로를 변경한 뒤 git을 설치해줍니다.</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span>
+sudo yum -y install git</code></pre>
+<h3 id="oh-my-zsh-설치">oh my zsh 설치</h3>
+<pre class="bash"><code class="hljs">sh -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></code></pre>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/24/5_1.PNG" alt="OH MY ZSH 실행화면"><figcaption>OH MY ZSH 실행화면</figcaption>
+</figure>
+<p>이렇게 보이면 정상적으로 설치된 겁니다.</p>
+<h3 id="zsh-syntax-highlighting-설치">zsh-syntax-highlighting 설치</h3>
+<pre class="bash"><code class="hljs">git <span class="hljs-built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting</code></pre>
+<p>zsh-syntax-highlighting은 아래와 같이 syntax를 구분하기 쉽게 색깔을 넣어주는 툴입니다.</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">echo</span> <span class="hljs-string">'Hello, world!'</span></code></pre>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">echo</span> <span class="hljs-string">'Hello, world!'</span></code></pre>
+<h3 id="zsh-autosuggestions-설치">zsh-autosuggestions 설치</h3>
+<pre class="bash"><code class="hljs">git <span class="hljs-built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="hljs-variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</code></pre>
+<p>autosuggestion은 터미널 창에서 내가 입력했던 명령어를 보여주는 툴입니다.</p>
+<p>.zshrc에 plugins를 아래와 같이 저장해줍니다.</p>
+<pre class="bash"><code class="hljs">vi ~/.zshrc</code></pre>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/24/5_2.PNG" alt=".zshrc"><figcaption>.zshrc</figcaption>
+</figure>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">source</span> ~/.zshrc</code></pre>
+<h3 id="epel-release-설치">epel-release 설치</h3>
+<p>epel (Extra Packages for Enterprise Linux)이란 엔터프라이즈 리눅스를 위한 추가 패키지를 뜻합니다. <a href="https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80">Reference3</a></p>
+<pre class="bash"><code class="hljs">sudo yum -y install epel-release</code></pre>
+<h3 id="pure-설치">pure 설치</h3>
+<pre class="bash"><code class="hljs">git <span class="hljs-built_in">clone</span> https://github.com/sindresorhus/pure</code></pre>
+<p>pure는 터미널을 더 예쁘게 만들어주는 테마입니다. (특히, git branch를 사용할 때)</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span> /usr/share/zsh/site-functions
+sudo cp ~/pure/pure.zsh prompt_pure_setup
+sudo cp ~/pure/async.zsh async</code></pre>
+<p>(cd 후 home directory에서)</p>
+<pre class="bash"><code class="hljs">vi ~/.zshrc</code></pre>
+<p>(.zshrc에 맨 하단에 아래 코드 입력 후 저장)</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">autoload</span> -U promptinit; promptinit
+prompt pure</code></pre>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">source</span> ~/.zshrc</code></pre>
+<p><br></p>
+<h3 id="reference">Reference</h3>
+<p><a href="https://conory.com/blog/42596">Reference1 (https://conory.com/blog/42596)</a></p>
+<p><a href="https://ko.wikipedia.org/wiki/Wget">Reference2 (https://ko.wikipedia.org/wiki/Wget)</a></p>
+<p><a href="https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80">Reference3 (https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)</a></p>
+<p>asciinema 참고: <a href="https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S">https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S</a></p>
+</div></article><hr data-v-479f0c76=""></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.16476f45.js"></script></body></html>

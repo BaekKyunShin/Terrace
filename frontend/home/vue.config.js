@@ -30,7 +30,8 @@ const productionPlugins = [
       "/devRecordBlog/2019/01/20/blog-CentOS",
       "/devRecordBlog/2019/01/21/blog-network",
       "/devRecordBlog/2019/01/22/blog-portForwarding",
-      "/devRecordBlog/2019/01/23/blog-puttyConnection"
+      "/devRecordBlog/2019/01/23/blog-puttyConnection",
+      "/devRecordBlog/2019/01/24/blog-setting1"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
