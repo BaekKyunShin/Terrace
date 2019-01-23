@@ -1,0 +1,60 @@
+<h1 id="blog---5.-개발환경세팅-i">BLOG - 5. 개발환경세팅 I</h1>
+<p>이제 개발환경세팅을 위한 각 종 패키지를 설치하겠습니다.</p>
+<h3 id="zsh-설치"><strong>ZSH 설치</strong></h3>
+<p>Z Shell (zsh)는 기본 터미널보다 조금 더 예쁘고 사용하기 좋은 쉘이라고 보면 됩니다. home directory에서 아래 커맨드를 입력해주면 설치가 됩니다.</p>
+<pre class="bash"><code>sudo yum -y install zsh</code></pre>
+<p>yum은 레드헷 (Red Hat/CentOs/Fedora) 계열에서 사용할 수 있는 자동설치 도구입니다. <a href="https://conory.com/blog/42596">(Reference1)</a></p>
+<h3 id="wget설치">Wget설치</h3>
+<p>Wget은 웹 서버로부터 콘텐츠를 가져오는 프로그램을 뜻합니다. 월드 와이드 웹(www)과 get의 합성어이며, HTTP, HTTPS, FTP 프로토콜을 통해 내려받기를 지원합니다. <a href="https://ko.wikipedia.org/wiki/Wget">(Reference2)</a></p>
+<pre class="bash"><code>sudo yum -y install wget</code></pre>
+<h3 id="zsh-completions-설치">zsh-completions 설치</h3>
+<pre class="bash"><code>cd /etc/yum.repos.d/</code></pre>
+<p>위 경로에는 yum 저장소 파일이 있습니다. 저장소 파일에는 저장소에 접속할 저장소 URL 정보가 담겨있는데 이 파일에서 찾은 저장소 URL에 접속해 yum이 패키지를 다운로드하도록 되어있습니다. 저장소 파일은 <strong>파일이름.repo</strong> 형식으로 되어있는데 한 저장소 파일에 여러 저장소 정보가 있을 수 있다는 것이 특징입니다. <a href="https://conory.com/blog/42596">(Reference1)</a></p>
+<p>아래 커맨드를 입력해서 zsh-completions 설치는 위한 repo를 추가해준 뒤 zsh-completions를 설치합니다. 모두 yum.repos.d에서 합니다.</p>
+<pre class="bash"><code>sudo wget https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/CentOS_7/shells:zsh-users:zsh-completions.repo</code></pre>
+<pre class="bash"><code>sudo yum -y install zsh-completions</code></pre>
+<h3 id="git-설치">git 설치</h3>
+<p>home directory로 경로를 변경한 뒤 git을 설치해줍니다.</p>
+<pre class="bash"><code>cd
+sudo yum -y install git</code></pre>
+<h3 id="oh-my-zsh-설치">oh my zsh 설치</h3>
+<pre class="bash"><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></pre>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/24/5_1.PNG" alt="OH MY ZSH 실행화면" /><figcaption>OH MY ZSH 실행화면</figcaption>
+</figure>
+<p>이렇게 보이면 정상적으로 설치된 겁니다.</p>
+<h3 id="zsh-syntax-highlighting-설치">zsh-syntax-highlighting 설치</h3>
+<pre class="bash"><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
+<p>zsh-syntax-highlighting은 아래와 같이 syntax를 구분하기 쉽게 색깔을 넣어주는 툴입니다.</p>
+<pre class="bash"><code>echo &#39;Hello, world!&#39;</code></pre>
+<pre class="bash"><code>echo &#39;Hello, world!&#39;</code></pre>
+<h3 id="zsh-autosuggestions-설치">zsh-autosuggestions 설치</h3>
+<pre class="bash"><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></pre>
+<p>autosuggestion은 터미널 창에서 내가 입력했던 명령어를 보여주는 툴입니다.</p>
+<p>.zshrc에 plugins를 아래와 같이 저장해줍니다.</p>
+<pre class="bash"><code>vi ~/.zshrc</code></pre>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/24/5_2.PNG" alt=".zshrc" /><figcaption>.zshrc</figcaption>
+</figure>
+<pre class="bash"><code>source ~/.zshrc</code></pre>
+<h3 id="epel-release-설치">epel-release 설치</h3>
+<p>epel (Extra Packages for Enterprise Linux)이란 엔터프라이즈 리눅스를 위한 추가 패키지를 뜻합니다. <a href="https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80">Reference3</a></p>
+<pre class="bash"><code>sudo yum -y install epel-release</code></pre>
+<h3 id="pure-설치">pure 설치</h3>
+<pre class="bash"><code>git clone https://github.com/sindresorhus/pure</code></pre>
+<p>pure는 터미널을 더 예쁘게 만들어주는 테마입니다. (특히, git branch를 사용할 때)</p>
+<pre class="bash"><code>cd /usr/share/zsh/site-functions
+sudo cp ~/pure/pure.zsh prompt_pure_setup
+sudo cp ~/pure/async.zsh async</code></pre>
+<p>(cd 후 home directory에서)</p>
+<pre class="bash"><code>vi ~/.zshrc</code></pre>
+<p>(.zshrc에 맨 하단에 아래 코드 입력 후 저장)</p>
+<pre class="bash"><code>autoload -U promptinit; promptinit
+prompt pure</code></pre>
+<pre class="bash"><code>source ~/.zshrc</code></pre>
+<p><br></p>
+<h3 id="reference">Reference</h3>
+<p><a href="https://conory.com/blog/42596">Reference1 (https://conory.com/blog/42596)</a></p>
+<p><a href="https://ko.wikipedia.org/wiki/Wget">Reference2 (https://ko.wikipedia.org/wiki/Wget)</a></p>
+<p><a href="https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80">Reference3 (https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)</a></p>
+<p>asciinema 참고: <a href="https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S">https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S</a></p>
