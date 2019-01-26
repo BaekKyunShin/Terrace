@@ -50,7 +50,7 @@ blockquote {
   border-radius: 5px;
   background: #fafafa;
   margin: 30px 0px 30px;
-  padding: 1px 20px 1px;
+  padding: 1px 25px 1px;
 }
 
 pre {
