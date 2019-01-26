@@ -41,6 +41,18 @@ export default {
 }
 */
 
+blockquote {
+  text-indent: .5em;
+  opacity: .9;
+  -moz-box-shadow: 1px 1px 10px #ccc;
+  -webkit-box-shadow: 1px 1px 10px #ccc;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 5px;
+  background: #fafafa;
+  margin: 30px 0px 30px;
+  padding: 1px 20px 1px;
+}
+
 pre {
 	white-space: pre-wrap;                 /* CSS3 browsers  */
 	white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
