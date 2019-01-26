@@ -44,6 +44,7 @@ export default {
 blockquote {
   text-indent: .5em;
   opacity: .9;
+  display: block;
   -moz-box-shadow: 1px 1px 10px #ccc;
   -webkit-box-shadow: 1px 1px 10px #ccc;
   box-shadow: 1px 1px 10px #ccc;
