@@ -152,12 +152,7 @@ source ~/.zshrc
 
 ### Reference
 
-[Reference1 (https://conory.com/blog/42596)](https://conory.com/blog/42596)
-
-[Reference2 (https://ko.wikipedia.org/wiki/Wget)](https://ko.wikipedia.org/wiki/Wget)
-
-[Reference3 (https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)](https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)
-
+[Reference1 (https://conory.com/blog/42596)](https://conory.com/blog/42596)  
+[Reference2 (https://ko.wikipedia.org/wiki/Wget)](https://ko.wikipedia.org/wiki/Wget)  
+[Reference3 (https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)](https://zetawiki.com/wiki/YUM_epel_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%B6%94%EA%B0%80)  
 asciinema 참고: [https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S](https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S)
-
-
