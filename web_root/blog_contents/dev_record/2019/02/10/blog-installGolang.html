@@ -1,0 +1,24 @@
+<h1 id="blog---7.-go-언어-설치">BLOG - 7. Go 언어 설치</h1>
+<p>다른 언어를 사용해도 되지만 본 프로젝트에서는 Go 언어를 사용할 것입니다. Go 언어 설치를 위해서는 home directory에서</p>
+<pre class="bash"><code>mkdir temp
+cd temp
+sudo yum -y install wget
+wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz</code></pre>
+<p>wget으로 받아오는 go 버전은 계속 업그레이드가 될 수 있으므로 최신버전으로 설치합니다. golang 홈페이지에 들어가면 아래와 같이 Linux 최신버전을 볼 수 있습니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/02/10/7_1.PNG" alt="golang 메인 홈페이지" /><figcaption>golang 메인 홈페이지</figcaption>
+</figure>
+<p>go를 다운받을 때 확장자가 tar.gz입니다. 이는 압축 확장자이며, 압축을 풀어 사용할 수 있습니다. 다운받은 go 아카이브의 압축을 아래와 같이 풉니다. <a href="http://sarghis.com/blog/468/">(Reference1)</a> temp directory에서</p>
+<pre class="bash"><code>tar -xzvf go1.11.4.linux-amd64.tar.gz</code></pre>
+<pre class="bash"><code>sudo mv go /usr/local/</code></pre>
+<pre class="bash"><code>vi ~/.zshrc</code></pre>
+<p>아래처럼, 환경변수 $PATH를 추가시킵니다. 환경변수를 추가시킴으로써 go를 어떤 디렉토리에서도 실행할 수 있게 합니다.</p>
+<pre class="bash"><code>export PATH=/usr/local/go/bin:$PATH</code></pre>
+<pre class="bash"><code>source ~/.zshrc</code></pre>
+<p>$PATH는 환경 변수를 뜻합니다. 터미널에서 프로그램 명령어를 입력하면 $PATH 환경 변수에 저장된 디렉토리 목록에서 명령을 찾습니다. $PATH에 현재 나열된 목록을 확인하려면 아래와 같이 입력하면 됩니다.</p>
+<pre class="bash"><code>echo $PATH</code></pre>
+<p>그러면 아래와 같이 콜론으로 구분된 디렉토리 목록이 반환됩니다.</p>
+<pre class="bash"><code>/usr/local/go/bin:/usr/local/bin:/usr/bin:/home/bkshin/bin:/usr/local/sbin:/usr/sbin</code></pre>
+<p>위에서 go 디렉토리도 추가했기 때문에 /usr/local/go/bin도 잘 추가된 것을 볼 수 있습니다. <a href="https://askubuntu.com/questions/551990/what-does-path-mean">(Reference2)</a> 이제 아무 디렉토리에서나 <code>go</code>를 입력해주면 go가 잘 작동하는 할 것입니다.</p>
+<h2 id="reference">Reference</h2>
+<p><a href="http://sarghis.com/blog/468/">Reference1 (http://sarghis.com/blog/468/)</a><br /><a href="https://askubuntu.com/questions/551990/what-does-path-mean">Reference2 (https://askubuntu.com/questions/551990/what-does-path-mean)</a><br />asciinema 참고: <a href="https://asciinema.org/a/vQtDdhwM4Yp2lEaaEMETVcS1K">https://asciinema.org/a/vQtDdhwM4Yp2lEaaEMETVcS1K</a></p>
