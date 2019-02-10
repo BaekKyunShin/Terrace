@@ -10,6 +10,7 @@ const productionPlugins = [
 	    "/about",
       "/bookThinkBlog",
       "/devRecordBlog",
+      "/bookThinkBlog/2019/01/27/book-ryusiwha2",
       "/bookThinkBlog/2018/12/28/book-sapiens",
       "/bookThinkBlog/2018/11/27/book-theMiddlePassage",
 	    "/bookThinkBlog/2018/10/09/book-ancientFutures",
@@ -31,7 +32,9 @@ const productionPlugins = [
       "/devRecordBlog/2019/01/21/blog-network",
       "/devRecordBlog/2019/01/22/blog-portForwarding",
       "/devRecordBlog/2019/01/23/blog-puttyConnection",
-      "/devRecordBlog/2019/01/24/blog-setting1"
+      "/devRecordBlog/2019/01/24/blog-setting1",
+      "/devRecordBlog/2019/01/28/blog-setting2",
+      "/devRecordBlog/2019/02/10/blog-installGolang"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
