@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-d03260a6.12bc2f3c.css" rel="prefetch"><link href="/css/chunk-fb56549a.7f225963.css" rel="prefetch"><link href="/js/chunk-d03260a6.8c51c962.js" rel="prefetch"><link href="/js/chunk-fb56549a.1b625fcb.js" rel="prefetch"><link href="/css/app.c451e2bf.css" rel="preload" as="style"><link href="/js/app.1ee8a036.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.c451e2bf.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-fb56549a.7f225963.css"><script charset="utf-8" src="/js/chunk-fb56549a.1b625fcb.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="blog-installGolang :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-3600f192="" id="blog"><div data-v-3600f192="" id="blog-contents-element"><article data-v-3600f192=""><div data-v-3600f192="" class="inner-title-container"><h1 data-v-3600f192="" id="inner-title">BLOG - 7. Go 언어 설치</h1><div data-v-3600f192="" id="inner-date">2019.02.10</div></div><div data-v-3600f192="" id="article-content"><h1 id="blog---7.-go-언어-설치" style="display: none;">BLOG - 7. Go 언어 설치</h1>
+<p>다른 언어를 사용해도 되지만 본 프로젝트에서는 Go 언어를 사용할 것입니다. Go 언어 설치를 위해서는 home directory에서</p>
+<pre class="bash"><code class="hljs">mkdir temp
+<span class="hljs-built_in">cd</span> temp
+sudo yum -y install wget
+wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz</code></pre>
+<p>wget으로 받아오는 go 버전은 계속 업그레이드가 될 수 있으므로 최신버전으로 설치합니다. golang 홈페이지에 들어가면 아래와 같이 Linux 최신버전을 볼 수 있습니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/02/10/7_1.PNG" alt="golang 메인 홈페이지"><figcaption>golang 메인 홈페이지</figcaption>
+</figure>
+<p>go를 다운받을 때 확장자가 tar.gz입니다. 이는 압축 확장자이며, 압축을 풀어 사용할 수 있습니다. 다운받은 go 아카이브의 압축을 아래와 같이 풉니다. <a href="http://sarghis.com/blog/468/">(Reference1)</a> temp directory에서</p>
+<pre class="bash"><code class="hljs">tar -xzvf go1.11.4.linux-amd64.tar.gz</code></pre>
+<pre class="bash"><code class="hljs">sudo mv go /usr/<span class="hljs-built_in">local</span>/</code></pre>
+<pre class="bash"><code class="hljs">vi ~/.zshrc</code></pre>
+<p>아래처럼, 환경변수 $PATH를 추가시킵니다. 환경변수를 추가시킴으로써 go를 어떤 디렉토리에서도 실행할 수 있게 합니다.</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">export</span> PATH=/usr/<span class="hljs-built_in">local</span>/go/bin:<span class="hljs-variable">$PATH</span></code></pre>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">source</span> ~/.zshrc</code></pre>
+<p>$PATH는 환경 변수를 뜻합니다. 터미널에서 프로그램 명령어를 입력하면 $PATH 환경 변수에 저장된 디렉토리 목록에서 명령을 찾습니다. $PATH에 현재 나열된 목록을 확인하려면 아래와 같이 입력하면 됩니다.</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span></code></pre>
+<p>그러면 아래와 같이 콜론으로 구분된 디렉토리 목록이 반환됩니다.</p>
+<pre class="bash"><code class="hljs">/usr/<span class="hljs-built_in">local</span>/go/bin:/usr/<span class="hljs-built_in">local</span>/bin:/usr/bin:/home/bkshin/bin:/usr/<span class="hljs-built_in">local</span>/sbin:/usr/sbin</code></pre>
+<p>위에서 go 디렉토리도 추가했기 때문에 /usr/local/go/bin도 잘 추가된 것을 볼 수 있습니다. <a href="https://askubuntu.com/questions/551990/what-does-path-mean">(Reference2)</a> 이제 아무 디렉토리에서나 <code class="hljs vim"><span class="hljs-keyword">go</span></code>를 입력해주면 go가 잘 작동하는 할 것입니다.</p>
+<h2 id="reference">Reference</h2>
+<p><a href="http://sarghis.com/blog/468/">Reference1 (http://sarghis.com/blog/468/)</a><br><a href="https://askubuntu.com/questions/551990/what-does-path-mean">Reference2 (https://askubuntu.com/questions/551990/what-does-path-mean)</a><br>asciinema 참고: <a href="https://asciinema.org/a/vQtDdhwM4Yp2lEaaEMETVcS1K">https://asciinema.org/a/vQtDdhwM4Yp2lEaaEMETVcS1K</a></p>
+</div></article><hr data-v-3600f192=""></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.1ee8a036.js"></script></body></html>

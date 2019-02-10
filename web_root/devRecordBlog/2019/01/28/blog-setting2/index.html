@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-d03260a6.12bc2f3c.css" rel="prefetch"><link href="/css/chunk-fb56549a.7f225963.css" rel="prefetch"><link href="/js/chunk-d03260a6.8c51c962.js" rel="prefetch"><link href="/js/chunk-fb56549a.1b625fcb.js" rel="prefetch"><link href="/css/app.c451e2bf.css" rel="preload" as="style"><link href="/js/app.1ee8a036.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.c451e2bf.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-fb56549a.7f225963.css"><script charset="utf-8" src="/js/chunk-fb56549a.1b625fcb.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="blog-setting2 :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-3600f192="" id="blog"><div data-v-3600f192="" id="blog-contents-element"><article data-v-3600f192=""><div data-v-3600f192="" class="inner-title-container"><h1 data-v-3600f192="" id="inner-title">BLOG - 6. 개발환경세팅 II</h1><div data-v-3600f192="" id="inner-date">2019.01.28</div></div><div data-v-3600f192="" id="article-content"><h1 id="blog---6.-개발환경세팅-ii" style="display: none;">BLOG - 6. 개발환경세팅 II</h1>
+<h3 id="npm설치"><strong>NPM설치</strong></h3>
+<p>NPM(Node Package Manager)란 자바스크립트 기반의 패키지 매니저입니다. <a href="https://www.w3schools.com/nodejs/nodejs_npm.asp">(Reference1)</a> 이름처럼 NPM은 Node.js로 만들어진 모듈을 웹에서 받아 설치하고 관리해주는 프로그램입니다. 사용자는 명령어를 통해 공개된 모듈을 설치하고 활용할 수 있습니다.</p>
+<p>NPM 및 vue-cli 3.0을 아래와 같이 설치할 수 있습니다. vue-cli를 통해 터미널에서 간단한 명령어로 프로젝트 디렉토리를 만들 수 있습니다.</p>
+<pre class="bash"><code class="hljs">sudo yum -y install npm
+sudo npm install -g @vue/cli</code></pre>
+<p>(-g는 global의 약자이며, 다른 계정들에서도 사용할 수 있음)</p>
+<pre class="bash"><code class="hljs">vue --verison</code></pre>
+<p>을 치면 Node version을 업그레이드 하라는 경고 메시지가 나올 겁니다.</p>
+<h3 id="npm-업그레이드">NPM 업그레이드</h3>
+<pre class="bash"><code class="hljs">sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable</code></pre>
+<p>위 코드로 NPM 업그레이드를 합니다. 우선, 강제로 캐시를 제거하고, n 모듈을 설치합니다. 마지막으로 n모듈을 사용하여 Node.js를 설치합니다. <a href="https://velopert.com/1351">(Reference2)</a></p>
+<pre class="bash"><code class="hljs">vue --verison</code></pre>
+<p>을 치면 이제 정상적으로 verison 정보가 뜹니다.</p>
+<h3 id="project-directory-구성">Project Directory 구성</h3>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span>
+mkdir terrace
+<span class="hljs-built_in">cd</span> terrace
+mkdir frontend
+vue create home</code></pre>
+<p>Project main directory(여기서는 terrace)를 만들고 그 하단에 frontend directory를 만든 뒤 vue를 create합니다. vue-cli가 home directory 하단에 자동으로 project directory를 만들어 줍니다. '기본 npm registry는 느리다고 더 빠른 installation을 하겠습니까?'라는 메시지가 뜨면 Yes를 해줍니다. 그 후 default (babel, eslint)를 선택해주고 설치합니다.</p>
+<p>home directory로 들어가보면 아래와 같이 기본적인 project directory가 구성되어 있을 것입니다.</p>
+<ul>
+<li>dist: 빌드 결과물이 담겨 있는 디렉토리입니다. <code class="hljs">npm run build</code> 시 내용물이 담깁니다. 빌드에 대해서는 나중에 다시 설명하겠습니다.</li>
+<li>node_modules: npm 으로 설치한 것들이 담겨있는 폴더입니다. 용량이 꽤 크기 때문에 github에 올리면 안됩니다. (.gitignore에 추가)</li>
+<li>public: 공용으로 접근 가능한 파일이 위치합니다. favicon, 블로그 아티클 등이 담깁니다.</li>
+<li>src: vue 소스코드가 담깁니다.</li>
+</ul>
+<p>나머지 json이나 js파일은 직접 건들 건 아니기 때문에 신경쓰지 맙시다. <a href="http://vuejs.kr/vue/vue-cli/2018/01/27/vue-cli-3/">(Reference3)</a></p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span> home
+npm run serve</code></pre>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/28/6_1.PNG" alt="App running"><figcaption>App running</figcaption>
+</figure>
+<p>run serve후에 위와 같이 뜨면 정상적으로 성공한 것입니다.</p>
+<p>이제 아래 명령어로 빌드를 해줍니다.</p>
+<pre class="bash"><code class="hljs">npm run build</code></pre>
+<p>build 결과물은 dist directory에 담깁니다.</p>
+<h3 id="http-server-설치">http-server 설치</h3>
+<p>로컬에서 만든 작업물을 웹 상에서 띄우기 위해서는 웹 서버가 필요합니다. 여기서는 http-server를 사용할 것이며, 웹 서버에 대한 이해가 부족하다면 <a href="https://developer.mozilla.org/ko/docs/Learn/Common_questions/What_is_a_web_server">(Reference4)</a> 링크를 참고하시기 바랍니다.</p>
+<pre class="bash"><code class="hljs"><span class="hljs-built_in">cd</span> dist
+sudo npm install –g http-server 
+http-server .</code></pre>
+<p>위와 같이 dist 디렉토리에 http-server를 설치합니다. http-server 옆에 .은 현재 디렉토리를 의미합니다. <a href="https://www.npmjs.com/package/http-server">(Reference5)</a></p>
+<h3 id="localhost-접속">localhost 접속</h3>
+<p>http-server를 실행했기 때문에 인터넷을 켜서 주소창에 localhost:8881을 치면 Vue 기본 페이지가 떠야하는데 뜨질 않습니다. (localhost옆에 :8881은 호스트 포트를 의미함)</p>
+<p>이는 방화벽이 막혀있어서 그런 것입니다.</p>
+<p>home directory에서 아래와 같이 포트에 방화벽을 열어줍니다. (8080, 80 등이 포트를 의미함)</p>
+<pre class="bash"><code class="hljs">sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+sudo firewall-cmd --reload</code></pre>
+<p>이젠 http-server . 혹은 npm run serve를 한 뒤 localhost:8881로 접속하면 vue 기본 페이지가 뜹니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/01/28/6_2.PNG" alt="Vue 기본 페이지"><figcaption>Vue 기본 페이지</figcaption>
+</figure>
+<p>frontend directory 안에서 vue-cli로 home project를 생성했습니다. home directory 밑에는 서버와 배포시스템이 추가됩니다. frontend directory 밑에는 문서 변환과 프리렌더링 프로그램이 추가될 것입니다. <strong>드디어 눈에 보이는 무언가가 생겨났습니다!</strong><br><br></p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://www.w3schools.com/nodejs/nodejs_npm.asp">Reference1 (https://www.w3schools.com/nodejs/nodejs_npm.asp)</a><br><a href="https://velopert.com/1351">Reference2 (https://velopert.com/1351)</a><br><a href="http://vuejs.kr/vue/vue-cli/2018/01/27/vue-cli-3/">Reference3 (http://vuejs.kr/vue/vue-cli/2018/01/27/vue-cli-3/)</a><br><a href="https://developer.mozilla.org/ko/docs/Learn/Common_questions/What_is_a_web_server">Reference4 (https://developer.mozilla.org/ko/docs/Learn/Common_questions/What_is_a_web_server)</a><br><a href="https://www.npmjs.com/package/http-server">Reference5 (https://www.npmjs.com/package/http-server)</a><br>asciinema 참고: <a href="https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S">https://asciinema.org/a/VxmATX3owRxhSOcafHpPr4X6S</a></p>
+</div></article><hr data-v-3600f192=""></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.1ee8a036.js"></script></body></html>
