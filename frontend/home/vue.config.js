@@ -35,7 +35,8 @@ const productionPlugins = [
       "/devRecordBlog/2019/01/24/blog-setting1",
       "/devRecordBlog/2019/01/28/blog-setting2",
       "/devRecordBlog/2019/02/10/blog-installGolang",
-      "/devRecordBlog/2019/02/11/blog-settingNeovim"
+      "/devRecordBlog/2019/02/11/blog-settingNeovim",
+      "/devRecordBlog/2019/02/12/blog-webServer"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
