@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-005f5afc.de9c5868.css" rel="prefetch"><link href="/css/chunk-d03260a6.12bc2f3c.css" rel="prefetch"><link href="/js/chunk-005f5afc.b64ca785.js" rel="prefetch"><link href="/js/chunk-d03260a6.8c51c962.js" rel="prefetch"><link href="/css/app.c451e2bf.css" rel="preload" as="style"><link href="/js/app.a060746e.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.c451e2bf.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-005f5afc.de9c5868.css"><script charset="utf-8" src="/js/chunk-005f5afc.b64ca785.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="blog-githubPush :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-82e34826="" id="blog"><div data-v-82e34826="" id="blog-contents-element"><article data-v-82e34826=""><div data-v-82e34826="" class="inner-title-container"><h1 data-v-82e34826="" id="inner-title">BLOG - 11. Github 연결</h1><div data-v-82e34826="" id="inner-date">2019.02.17</div></div><div data-v-82e34826="" id="article-content"><h1 id="blog---11.-github-연결" style="display: none;">BLOG - 11. Github 연결</h1>
+<p>지금까지 블로그 기본 뼈때를 만들고 빌드까지 했습니다. 추후에는 AWS를 통해서 블로그를 띄울 겁니다. 그에 앞서 본 챕터에서는 github에 연결하는 방법에 대해 배워볼 것입니다. github 연결법을 이미 알고 계신 분은 다음 챕터로 넘어가셔도 됩니다.</p>
+<h3 id="github"><strong>Github</strong></h3>
+<p>우선 git은 github을 이용할 것입니다. github에 repository를 하나 생성합니다. terrace 디렉토리에서는 <code class="hljs">.gitignore</code>에 <code class="hljs">bin</code>을 추가해줍니다. <code class="hljs">.gitignore</code>에 있는 디렉토리 혹은 파일은 git의 영향을 받지 않습니다. 이제 git을 만들어줍니다.</p>
+<pre class="bash"><code class="hljs">git init
+git config --global user.name <span class="hljs-string">"bkshin"</span>
+git config --global user.email <span class="hljs-string">"werooring@gmail.com"</span>
+git add -A
+git commit</code></pre>
+<p>커밋 메시지는 <code class="hljs">firtst commit</code>이라고 찍습니다. 다만 그 이후 commit은 <a href="https://www.huskyhoochu.com/issue-based-version-control-101">(Reference1)</a>을 참고해서 작성하면 됩니다. 이론편뿐만 아니라 실전편까지 봐야합니다.</p>
+<pre class="bash"><code class="hljs">git remote add origin git@github.com:BaekKyunShin/Terrace_example.git
+git push -u origin master</code></pre>
+<p>이렇게 하면 publickey가 없다고 permission denied가 뜰 겁니다. git@github.com~ 부분이 SSH 주소입니다. Git SSH 공개키를 만들어야 push를 할 수 있습니다.</p>
+<pre class="bash"><code class="hljs">ssh-keygen</code></pre>
+<p>을 해주고 passphrase 만 두번 입력해줍니다. 맨 처음 나오는 'Enter file in which to save the key'는 무시하고 엔터만 쳐도 됩니다. <code class="hljs">~/.ssh</code> 디렉토리에서 id_rsa.pub가 생성된 걸 볼 수 있습니다. 이것이 publickey입니다. <a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0">(Reference2)</a></p>
+<pre class="bash"><code class="hljs">cat ~/.ssh/id_rsa.pub</code></pre>
+<p>를 치면 ssh-rsa로 시작하는 publickey가 나올 것입니다. 이것을 그대로 복사합니다. github 맨 오른쪽 위 메뉴를 클릭하고 settings을 누릅니다. 왼쪽 personal settings에서 SSH and GPG Keys를 누릅니다. New SSH Key를 클릭한 뒤 title을 자유롭게 설정하고 아래 Key에 방금 복사한 publickey 내용을 그대로 붙여넣기 한 뒤 저장합니다.<br>publickey를 등록했으니 이제 github으로 push 해봅시다.</p>
+<pre class="bash"><code class="hljs">git push -u origin master</code></pre>
+<p>passphrase를 치면 정상적으로 push가 되는 것을 볼 수 있습니다. 여기서 bin 디렉토리가 push되었다면 잘못된 것입니다. bin은 .gitinore에 추가가 되어있어야 하며 정상적으로 추가되었다면 bin은 push가 안 됩니다.</p>
+<figure>
+<img src="https://cdn.bkshin.com/devRecord/2019/02/17/11_1.PNG" alt="github Repository"><figcaption>github Repository</figcaption>
+</figure>
+<h2 id="reference">Reference</h2>
+<p><a href="https://www.huskyhoochu.com/issue-based-version-control-101">Reference1 (https://www.huskyhoochu.com/issue-based-version-control-101)</a><br><a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0">Reference2 (https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0)</a></p>
+</div></article><hr data-v-82e34826=""></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.a060746e.js"></script></body></html>
