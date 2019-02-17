@@ -38,7 +38,8 @@ const productionPlugins = [
       "/devRecordBlog/2019/02/11/blog-settingNeovim",
       "/devRecordBlog/2019/02/12/blog-webServer",
       "/devRecordBlog/2019/02/15/blog-shellMake",
-      "/devRecordBlog/2019/02/17/blog-githubPush"
+      "/devRecordBlog/2019/02/17/blog-githubPush",
+      "/devRecordBlog/2019/02/18/blog-ec2GitHook"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
