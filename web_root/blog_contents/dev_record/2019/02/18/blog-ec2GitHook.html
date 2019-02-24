@@ -39,7 +39,7 @@ chmod 700 .ssh
 cd .ssh
 sudo cp /home/ec2-user/.ssh/authorized_keys .</code></pre>
 <h3 id="git-hook-설정">Git Hook 설정</h3>
-<p>이제 Git hook을 설정해줄 것입니다. Git hook은 Git 으로 어떤 이벤트가 push되면 특정 스크립트가 실행되도록 합니다. <a href="https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85">(Reference3)</a></p>
+<p>이제 Git hook을 설정해줄 것입니다. Git hook은 Git 으로 어떤 이벤트가 push되면 특정 스크립트가 실행되도록 합니다. <a href="https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85">(Reference3)</a><br />terrace 디렉토리에서 <code>cd .git/hooks/</code>를 치면 여러 sample hook들이 보일 겁니다. 예를 들어 pre-commit은 커밋 직전에 실행되는 hook이라는 뜻입니다. .sample을 지워주면 바로 실행이 가능합니다. 각 hook들이 어떤 기능을 하는지는 <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">(Reference4)</a>를 참고해주시기 바랍니다.</p>
 <pre class="bash"><code>ls
 cd ..
 mkdir terrace_hook
@@ -50,13 +50,13 @@ sudo yum -y install git
 git init --bare
 ls -al
 cd hooks</code></pre>
-<p><code>git init --bare</code>은 워킹 디렉토리가 없는 빈 저장소를 만듭니다. <a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">(Reference4)</a> hooks 디렉토리를 보면 hook과 관련된 각종 샘플을 볼 수 있습니다.</p>
+<p><code>git init --bare</code>은 워킹 디렉토리가 없는 빈 저장소를 만듭니다. <a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">(Reference5)</a> hooks 디렉토리를 보면 hook과 관련된 각종 샘플을 볼 수 있습니다. 우리는 post-receive라는 hook을 새로 만들어 줄 것입니다.</p>
 <pre class="bash"><code>touch post-receive
 # post-receive에 실행 권한 추가
 chomod +x post-receive
 ls -al
 vi post-receive</code></pre>
-<p>post-receive란 git push 후에 자동으로 실행되는 스크립트를 의미합니다. 아래 코드를 그대로 복사 붙여넣기 합니다.</p>
+<p>post-receive란 EC2 git push 후에 자동으로 실행되는 스크립트를 의미합니다. 본 프로젝트에서는 로컬의 작업물을 EC2 git으로 push하면 post-receive가 그 작업물을 빌드하고 서버를 재부팅해줄 것입니다. 아래 코드를 그대로 복사 붙여넣기 합니다.</p>
 <pre class="bash"><code># Application Name:
 export DEPLOY_APP_NAME=`whoami`
 
@@ -155,4 +155,4 @@ v config</code></pre>
 <p>이제는 <code>ssh ec2-user@13.125.232.34</code>만 해도 EC2로 접속이 됩니다. 설정해주기 전에는 <code>ssh ec2-user@13.125.232.34 -i ~/.ssh/temp.pem</code>을 통해 접속을 했는데 훨씬 간단해졌습니다.</p>
 <p><br></p>
 <h2 id="reference">Reference</h2>
-<p><a href="https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html">Reference1 (https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)</a><br /><a href="https://rootblog.tistory.com/2">Reference2 (https://rootblog.tistory.com/2)</a><br /><a href="https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85">Reference3 (https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)</a><br /><a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">Reference4 (https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)</a></p>
+<p><a href="https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html">Reference1 (https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)</a><br /><a href="https://rootblog.tistory.com/2">Reference2 (https://rootblog.tistory.com/2)</a><br /><a href="https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85">Reference3 (https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)</a><br /><a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Reference4 (https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)</a><br /><a href="https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">Reference5 (https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)</a></p>

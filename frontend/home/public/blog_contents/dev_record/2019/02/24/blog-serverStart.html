@@ -1,0 +1,95 @@
+<h1 id="blog---13.-서버-시작프로그램">BLOG - 13. 서버 시작프로그램</h1>
+<h3 id="ec2-git으로-push하기"><strong>EC2 git으로 push하기</strong></h3>
+<p>로컬에서 작업한 결과물을 EC2 git 계정으로 push를 하면 지난번에 만들어준 post-receive가 빌드와 서버 재부팅을 자동으로 해줄 것입니다. 로컬이 결과물을 EC2 git으로 push해봅시다.</p>
+<p>EC2 연결 후</p>
+<pre class="bash"><code>sudo -u git bash
+cd
+cd .ssh
+ls -al</code></pre>
+<p>현재 authorized_keys가 root, root 소유이므로 이를 git 계정 소유로 바꿔줘야합니다.</p>
+<pre class="bash"><code>sudo chown git authorized_keys
+sudo chgrp git authorized_keys</code></pre>
+<p>이제 로컬로 다시 돌아가 terrace_hook 디렉토리로 master브랜치를 push해보겠습니다.</p>
+<pre class="bash"><code>exit
+logout
+cd terrace
+git push git@13.125.232.34:~/terrace_hook master</code></pre>
+<p>이렇게 하면 정상적으로 push가 됩니다. EC2 git 계정으로 들어가 terrace_deploy 디렉토리를 보면 frontend, Makefile, src, web_root가 잘 들어와 있습니다.</p>
+<h3 id="terrace.service-생성">terrace.service 생성</h3>
+<p>(EC2 루트 계정에서)</p>
+<pre class="bash"><code>cd /etc
+cd systmed
+cd system
+sudo vi terrace.service</code></pre>
+<p>terrace.service에 아래 코드를 복사 붙여넣기 합니다.</p>
+<pre class="bash"><code>[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Terrace
+Requires=network.target
+After=network.target
+
+[Service]
+WorkingDirectory=/home/git/terrace_deploy
+Type=forking
+
+ExecStart=/bin/bash -c &#39;pkill terrace; ./bin/terrace &amp;&#39;
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=terraceService
+User=git
+Group=git
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+<p>terrace.service는 시작 프로그램이라고 생각하면 됩니다. 서버가 재부팅될 때 자동으로 서버를 실행해줍니다.</p>
+<h3 id="git계정에-go-설치-및-환경변수-설정">git계정에 go 설치 및 환경변수 설정</h3>
+<p>서버의 git 계정에서 로컬의 작업물을 go로 빌드를 해줄 것이기 때문에 go를 깔아야 합니다.</p>
+<p>(EC2 git 계정에서)</p>
+<pre class="bash"><code>cd
+cd terrace_deploy
+mkdir temp
+cd temp
+wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
+# 다운이 완료 되면 압축풀기
+tar -xzvf go1.11.4.linux-amd64.tar.gz
+sudo mv go /usr/local</code></pre>
+<p>go 디렉토리를 /usr/local로 옮겼기 때문에 아래와 같이 환경 변수를 추가해줍니다.</p>
+<pre class="bash"><code>cd
+vi ~/.bashrc</code></pre>
+<p>.bashrc에 아래 코드 추가</p>
+<pre class="bash"><code>export PATH=/usr/local/go/bin:$PATH</code></pre>
+<pre class="bash"><code>source ~/.bashrc</code></pre>
+<h3 id="makefile-업데이트">Makefile 업데이트</h3>
+<p>로컬에서 EC2 git으로 push하는 것도 Makefile을 통해 자동화해주겠습니다.</p>
+<p>(로컬에서)</p>
+<pre class="bash"><code>cd terrace
+vi Makefile</code></pre>
+<p>run ,build 아래 아래 코드 추가 후 저장합니다.</p>
+<pre class="bash"><code>Update:
+    /usr/local/go/bin/go build –x –o ./bin/terrace ./src
+    sudo setcap CAP_NET_BIND_SERVICE=+eip ./bin/terrace
+
+deploy:
+    git push git@13.125.232.34:~/terrace_hook master</code></pre>
+<p>여기서 make update는 post-receive가 알아서 해줍니다. (새로운 작업물을 push 받으면 make update, 즉 빌드를 해줌) 사용자는 로컬에서 make deploy만 사용할 것입니다.</p>
+<p>이제 Makefile을 활용해서 EC2 git으로 push를 해보겠습니다.</p>
+<p>(로컬에서)</p>
+<pre class="bash"><code>cd terrace
+git add -A
+git commit -m &quot;deploy commit&quot;
+make deploy</code></pre>
+<p>이렇게 EC2 git으로 push를 할 수 있습니다. 그럼 서버에서 새로운 작업물을 받았다고 인지하고 자동으로 post-receive를 실행합니다. 우리가 만든 post-receive는 작업물을 빌드하고 서버를 재부팅합니다. 따라서 EC2 git으로 push를 하고, 크롬을 통해 해당 IP(서버)로 접속하면 로컬에서 작업한 결과물을 볼 수 있는 것입니다.</p>
+<h3 id="systemctl-설정">systemctl 설정</h3>
+<p>(ec2 루트계정 /etc/systemd/system 폴더 안에서)</p>
+<pre class="bash"><code>sudo systemctl enable terrace.service
+sudo systemctl daemon-reload
+sudo systemctl start terrace.service
+systemctl status terrace.service</code></pre>
+<p>terrace.service가 정상적으로 active(running) 된 상황을 볼 수 있습니다. 처음에만 위와 같이 설정해주고 앞으로는 EC2 git으로 push할 때 마다 post-receive가 아래의 코드를 실행해줍니다.</p>
+<pre class="bash"><code>sudo systemctl restart terrace.service
+sudo systemctl status terrace.service</code></pre>
+<p>이제 크롬 주소창에 각자의 ip를 치면 로컬에서 만들어준 vue 기본 페이지가 뜹니다.</p>
+<p><br></p>
