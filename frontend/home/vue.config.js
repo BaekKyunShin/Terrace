@@ -10,6 +10,7 @@ const productionPlugins = [
 	    "/about",
       "/bookThinkBlog",
       "/devRecordBlog",
+      "/bookThinkBlog/2019/02/24/book-homoDeus",
       "/bookThinkBlog/2019/01/27/book-ryusiwha2",
       "/bookThinkBlog/2018/12/28/book-sapiens",
       "/bookThinkBlog/2018/11/27/book-theMiddlePassage",
