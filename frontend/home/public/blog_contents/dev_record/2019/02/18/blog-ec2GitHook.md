@@ -80,7 +80,8 @@ sudo cp /home/ec2-user/.ssh/authorized_keys .
 
 ### Git Hook 설정
 
-이제 Git hook을 설정해줄 것입니다.  Git hook은 Git 으로 어떤 이벤트가 push되면 특정 스크립트가 실행되도록 합니다. [(Reference3)](https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)
+이제 Git hook을 설정해줄 것입니다.  Git hook은 Git 으로 어떤 이벤트가 push되면 특정 스크립트가 실행되도록 합니다. [(Reference3)](https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)   
+terrace 디렉토리에서 ```cd .git/hooks/```를 치면 여러 sample hook들이 보일 겁니다. 예를 들어 pre-commit은 커밋 직전에 실행되는 hook이라는 뜻입니다. .sample을 지워주면 바로 실행이 가능합니다. 각 hook들이 어떤 기능을 하는지는 [(Reference4)](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)를 참고해주시기 바랍니다.
 
 ```bash
 ls
@@ -95,7 +96,7 @@ ls -al
 cd hooks
 ```
 
-```git init --bare```은 워킹 디렉토리가 없는 빈 저장소를 만듭니다. [(Reference4)](https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0) hooks 디렉토리를 보면 hook과 관련된 각종 샘플을 볼 수 있습니다. 
+```git init --bare```은 워킹 디렉토리가 없는 빈 저장소를 만듭니다. [(Reference5)](https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0) hooks 디렉토리를 보면 hook과 관련된 각종 샘플을 볼 수 있습니다. 우리는 post-receive라는 hook을 새로 만들어 줄 것입니다.
 
 ```bash
 touch post-receive
@@ -105,7 +106,7 @@ ls -al
 vi post-receive
 ```
 
-post-receive란 git push 후에 자동으로 실행되는 스크립트를 의미합니다. 아래 코드를 그대로 복사 붙여넣기 합니다.
+post-receive란 EC2 git push 후에 자동으로 실행되는 스크립트를 의미합니다. 본 프로젝트에서는 로컬의 작업물을 EC2 git으로 push하면 post-receive가 그 작업물을 빌드하고 서버를 재부팅해줄 것입니다.  아래 코드를 그대로 복사 붙여넣기 합니다.
 
 ```bash
 # Application Name:
@@ -227,4 +228,5 @@ chmod 600 config
 [Reference1 (https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)  
 [Reference2 (https://rootblog.tistory.com/2)](https://rootblog.tistory.com/2)  
 [Reference3 (https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)](https://git-scm.com/book/ko/v1/Git%EB%A7%9E%EC%B6%A4-Git-%ED%9B%85)  
-[Reference4 (https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)](https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+[Reference4 (https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)  
+[Reference5 (https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)](https://git-scm.com/book/ko/v1/Git-%EC%84%9C%EB%B2%84-%EC%84%9C%EB%B2%84%EC%97%90-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
