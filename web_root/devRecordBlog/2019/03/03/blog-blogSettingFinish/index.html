@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-236d2813.dd1c073f.css" rel="prefetch"><link href="/css/chunk-4f1517aa.7dea2d1c.css" rel="prefetch"><link href="/js/chunk-236d2813.0b7e7c6e.js" rel="prefetch"><link href="/js/chunk-4f1517aa.9b42071e.js" rel="prefetch"><link href="/css/app.c451e2bf.css" rel="preload" as="style"><link href="/js/app.48423ecb.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.c451e2bf.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-236d2813.dd1c073f.css"><script charset="utf-8" src="/js/chunk-236d2813.0b7e7c6e.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="blog-blogSettingFinish :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-7b8d683c="" id="blog"><div data-v-7b8d683c="" id="blog-contents-element"><article data-v-7b8d683c=""><div data-v-7b8d683c="" class="inner-title-container"><h1 data-v-7b8d683c="" id="inner-title">BLOG - 15. 블로그 세팅 마무리</h1><div data-v-7b8d683c="" id="inner-date">2019.03.03</div></div><div data-v-7b8d683c="" id="article-content"><h1 id="blog---15.-블로그-세팅-마무리" style="display: none;">BLOG - 15. 블로그 세팅 마무리</h1>
+<h3 id="블로그-작업-후-로컬-변경사항-반영"><strong>블로그 작업 후 로컬 변경사항 반영</strong></h3>
+<p><code class="hljs">terrace/frontend/home/src</code>에 작업을 위한 vue 파일들이 있습니다. 작업을 해준 뒤 <code class="hljs">frontend</code>디렉토리에서</p>
+<pre class="bash"><code class="hljs">./update.sh
+<span class="hljs-built_in">cd</span> ..
+git add -A
+git commit
+make deploy
+./deploy_to_S3.sh</code></pre>
+<p><code class="hljs vim">./<span class="hljs-keyword">update</span>.<span class="hljs-keyword">sh</span></code>는 npm run build를 한 결과물이 담긴 dist 디렉토리를 web_root에 담는 작업입니다. git add, commit을 한 뒤 <code class="hljs vim"><span class="hljs-keyword">make</span> deploy</code>를 하면 EC2 git 계정으로 변경된 작업물이 push 되고, <code class="hljs vim">./deploy_to_S3.<span class="hljs-keyword">sh</span></code>를 하면 S3로 빌드 결과물이 반영됩니다. 여기까지 하고 도메인 주소로 들어가면 변경된 사항이 반영되어 있을 겁니다.</p>
+<h3 id="블로그-디자인-작업을-위한-참고자료">블로그 디자인 작업을 위한 참고자료</h3>
+<p>이제 모든 세팅은 다 끝났습니다. 개발환경세팅부터 AWS 작업까지 다 끝났습니다. 이제부터는 Vue.js, HTML, CSS, JavaScript를 공부하며 열심히 블로그를 꾸밀 일만 남았습니다. 본 블로그 프로젝트 디자인 작업을 위해 제가 직접 공부했던 자료를 공유해드립니다.</p>
+<ul>
+<li><p>Vue.js<br> 교재 - <a href="http://www.yes24.com/Product/Goods/58206961?scode=032&amp;OzSrank=1">Do it! Vue.js 입문</a>: 웹 프레임워크가 처음이라면 본 교재가 큰 도움이 될 것입니다. 기초부터 차근차근 설명을 해줘서 Vue.js가 무엇인지 어떻게 동작하는지 이해하는데 좋습니다.<br> 유투브 온라인 강좌 - <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa">Vue JS 2 Tutorial</a>: 총 45강입니다. 저는 거의 다 봤지만 제가 만든 블로그는 동적이지 않기 때문에 모든 강좌의 내용이 다 필요하지는 않았습니다. 기본적인 것부터 습득하고 필요하면 더 공부하는 식으로 해도 될 것 같습니다. 여러 vue tutorial을 찾아봤는데, 찾아본 것 중 본 강좌가 설명이 가장 잘 되어 있었습니다.</p></li>
+<li><p>HTML<br> <a href="https://opentutorials.org/course/3084">생활코딩 HTML</a>: 웹의 기초 지식도 같이 다루고 있습니다. HTML에 관해서는 아주 간단히만 나와있습니다.</p></li>
+<li><p>CSS<br> <a href="https://opentutorials.org/course/3086">생활코딩 CSS</a><br> <a href="https://www.w3schools.com/css/">CSS tutorial - W3Schools</a>: 디자인 작업하는데 실질적인 도움을 많이 받은 사이트입니다.</p></li>
+<li><p>JavaScript<br> <a href="https://opentutorials.org/course/3085">생활코딩 JavaScript</a></p></li>
+<li><p>Go 언어<br> <a href="https://gobyexample.com/">Go by Example</a>: 예시를 들어 설명을 하고 있어 다른 언어에 익숙한 분이라면 금방 이해하실 수 있을 겁니다.</p></li>
+<li><p>명재 선생님 깃허브<br> <a href="https://github.com/myeongjae-kim/terrace">myeongjae-kim</a>: 제 블로그를 위한 레퍼런스의 알파이자 오메가입니다. 명재 선생님께 다시 한번 감사를...</p></li>
+</ul>
+<p>Vue.js를 공부하셨다면 블로그의 큰 뼈대를 만들 수 있을 겁니다. 그러면서 css를 통해 디자인을 해주면 됩니다. 제 <a href="https://github.com/BaekKyunShin/Terrace">github</a>의 commit 이력을 처음부터 보면서 참고하셔도 됩니다. 다만, 아직 리팩토링을 하지 않았기 때문에 코드가 다소 난잡할 수 있을 겁니다. 또한, 궁금한 것에 대한 해답은 왠만하면 다 google에서 찾을 수 있습니다. 특히, 작업하다가 리눅스 상 에러가 뜨는 것들에 대해서는 Stack Overflow에서 많은 해답을 찾았습니다.</p>
+<p>뼈대 만들기와 디자인하기 외에도 아래와 같은 중요한 작업들이 남아 있습니다.</p>
+<ol type="1">
+<li>Routing<br></li>
+<li>Article Meta-Data 배열 만들기<br></li>
+<li>PreRendering<br></li>
+<li>Code Highlighting<br></li>
+<li>Trailing Slash</li>
+</ol>
+<p>이에 대해서는 다음 챕터부터 다루겠습니다. 우선 vue.js, HTML, CSS, JavaScript 를 다 공부한 뒤 다음 챕터를 보시면 됩니다.</p>
+</div></article><hr data-v-7b8d683c=""></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.48423ecb.js"></script></body></html>

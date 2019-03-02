@@ -27,10 +27,12 @@ const (
 	DevPath           string = "blog_contents/dev_record"
 	PathBookThinkBlog string = "../home/src/components/BookThinkBlog.vue"
 	PathDevRecordBlog string = "../home/src/components/DevRecordBlog.vue"
+	PathVueConfigJS   string = "../home/vue.config.js"
 )
 
 var bookArticles []string
 var devArticles []string
+var UriForRoutes string = "\"/\",\n\"/about\",\n\"/bookThinkBlog\",\n\"/devRecordBlog\",\n"
 
 func execRmOldHtml(path string) {
 	if (len(path) > len(EXT_HTML)) &&
@@ -135,9 +137,11 @@ func GetArticleMetadata(htmlPaths []string) []ArticleMetadata {
 		if strings.Contains(htmlPath, BookPath) {
 			uri = strings.Replace(htmlPath, "../home/public/blog_contents/book_think/", "/bookThinkBlog/", 1)
 			uri = strings.Replace(uri, ".html", "/", 1)
+			UriForRoutes = UriForRoutes + "\"" + uri[:len(uri)-1] + "\"," + "\n"
 		} else if strings.Contains(htmlPath, DevPath) {
 			uri = strings.Replace(htmlPath, "../home/public/blog_contents/dev_record/", "/devRecordBlog/", 1)
 			uri = strings.Replace(uri, ".html", "/", 1)
+			UriForRoutes = UriForRoutes + "\"" + uri[:len(uri)-1] + "\"," + "\n"
 		}
 
 		// Get date
@@ -249,4 +253,7 @@ func main() {
 	fmt.Println(string(db))
 	insertJsonToBlogComponent(string(bb), string(PathBookThinkBlog))
 	insertJsonToBlogComponent(string(db), string(PathDevRecordBlog))
+	UriForRoutes = "[" + "\n" + UriForRoutes[:len(UriForRoutes)-2] + "\n" + "],"
+	fmt.Println(UriForRoutes)
+	insertJsonToBlogComponent(string(UriForRoutes), string(PathVueConfigJS))
 }
