@@ -4,7 +4,34 @@
 
 ### **Github**
 
-우선 git은 github을 이용할 것입니다. github에 repository를 하나 생성합니다. terrace 디렉토리에서는 ```.gitignore```에 ```bin```을 추가해줍니다. ```.gitignore```에 있는 디렉토리 혹은 파일은 git의 영향을 받지 않습니다. 이제 git을 만들어줍니다.
+우선 git은 github을 이용할 것입니다. github에 repository를 하나 생성합니다. terrace 디렉토리에서는 ```.gitignore```에 ```bin```을 추가해줍니다. ```.gitignore```에 있는 디렉토리 혹은 파일은 git의 영향을 받지 않습니다. 
+
+추가로 home 디렉토리 안에서 .gitignore에 아래 파일 및 폴더를 지정해줍니다.
+```
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+```
+
+이제 git을 만들어줍니다.
 
 ```bash
 git init

@@ -1,7 +1,30 @@
 <h1 id="blog---11.-github-연결">BLOG - 11. Github 연결</h1>
 <p>지금까지 블로그 기본 뼈때를 만들고 빌드까지 했습니다. 추후에는 AWS를 통해서 블로그를 띄울 겁니다. 그에 앞서 본 챕터에서는 github에 연결하는 방법에 대해 배워볼 것입니다. github 연결법을 이미 알고 계신 분은 다음 챕터로 넘어가셔도 됩니다.</p>
 <h3 id="github"><strong>Github</strong></h3>
-<p>우선 git은 github을 이용할 것입니다. github에 repository를 하나 생성합니다. terrace 디렉토리에서는 <code>.gitignore</code>에 <code>bin</code>을 추가해줍니다. <code>.gitignore</code>에 있는 디렉토리 혹은 파일은 git의 영향을 받지 않습니다. 이제 git을 만들어줍니다.</p>
+<p>우선 git은 github을 이용할 것입니다. github에 repository를 하나 생성합니다. terrace 디렉토리에서는 <code>.gitignore</code>에 <code>bin</code>을 추가해줍니다. <code>.gitignore</code>에 있는 디렉토리 혹은 파일은 git의 영향을 받지 않습니다.</p>
+<p>추가로 home 디렉토리 안에서 .gitignore에 아래 파일 및 폴더를 지정해줍니다.</p>
+<pre><code>.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*</code></pre>
+<p>이제 git을 만들어줍니다.</p>
 <pre class="bash"><code>git init
 git config --global user.name &quot;bkshin&quot;
 git config --global user.email &quot;werooring@gmail.com&quot;
