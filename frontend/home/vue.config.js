@@ -42,7 +42,8 @@ const productionPlugins = [
       "/devRecordBlog/2019/02/17/blog-githubPush",
       "/devRecordBlog/2019/02/18/blog-ec2GitHook",
       "/devRecordBlog/2019/02/24/blog-serverStart",
-      "/devRecordBlog/2019/02/25/blog-s3DeployRedirect"
+      "/devRecordBlog/2019/02/25/blog-s3DeployRedirect",
+      "/devRecordBlog/2019/03/03/blog-blogSettingFinish"
     ],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
