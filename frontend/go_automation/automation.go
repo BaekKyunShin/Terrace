@@ -253,7 +253,7 @@ func main() {
 	fmt.Println(string(db))
 	insertJsonToBlogComponent(string(bb), string(PathBookThinkBlog))
 	insertJsonToBlogComponent(string(db), string(PathDevRecordBlog))
-	UriForRoutes = "[" + "\n" + UriForRoutes[:len(UriForRoutes)-2] + "\n" + "],"
+	UriForRoutes = "[" + "\n" + UriForRoutes[:len(UriForRoutes)-2] + "\n" + "]"
 	fmt.Println(UriForRoutes)
 	insertJsonToBlogComponent(string(UriForRoutes), string(PathVueConfigJS))
 }

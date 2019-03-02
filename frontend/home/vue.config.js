@@ -46,7 +46,7 @@ const productionPlugins = [
 "/devRecordBlog/2019/01/21/blog-network",
 "/devRecordBlog/2019/01/20/blog-CentOS",
 "/devRecordBlog/2018/12/12/thanks-to"
-],,
+],
     // __INSERTION_POSITION_END__ // DONT CNAHGE!!
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       renderAfterElementExists: '#app'
