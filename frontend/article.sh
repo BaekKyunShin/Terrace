@@ -1,2 +1,2 @@
-cd html_converter
-go run a.go
+cd go_automation
+go run automation.go
