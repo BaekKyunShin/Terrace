@@ -210,7 +210,7 @@ export default {
         .then(response => response.text())
         .then(responseText => this.articleHtmlSource = responseText);
       
-      var uri = htmlDocUri.replace('blog_contents/', '')
+      var uri = htmlDocUri.replace('blog_contents/book_think/', '')
                      .replace('.html', '/');
       this.address = this.domain + uri;
     }
