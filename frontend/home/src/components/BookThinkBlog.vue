@@ -102,6 +102,13 @@ export default {
       this.titleForMeta = title.innerHTML;
       this.author = author.innerHTML;
     }
+
+    this.initDisqus(
+      "bkshin",
+      this.address.replace(this.domain, ""), // uri as an identifier
+      this.title,
+      this.address
+    );
   },
 
   data() {
@@ -116,7 +123,9 @@ export default {
     title : this.$route.params.title1,
     author : this.author,
     titleForMeta : "",
-    articleHtmlSource : ""
+    articleHtmlSource : "",
+    address : "",  // will have a permalink of the article
+    domain : "http://bkshin.com/bookThinkBlog",
     }
   },
   watch: {
@@ -129,10 +138,60 @@ export default {
       }
   },
   methods: {
+    // Below function is from https://solidfoundationwebdev.com/blog/posts/many-disqus-modules-on-a-single-page
+    // The function did not work well,
+    // so I have fixed something, and it works well now.
+    initDisqus: function(shortname, identifier, title, url) {
+      //config
+      if (typeof DISQUS === "undefined") {
+        (async () => {
+          var vars_text =
+            'var disqus_shortname  = "' +
+            shortname +
+            '";\n' +
+            'var disqus_title      = "' +
+            title +
+            '";\n' +
+            identifier +
+            '";\n' +
+            'var disqus_url        = "' +
+            url +
+            '";\n';
+          var vars_obj = document.createElement("script");
+          vars_obj.type = "text/javascript";
+          vars_obj.async = true;
+          vars_obj.text = vars_text;
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(vars_obj);
+          var dsq = document.createElement("script");
+          dsq.type = "text/javascript";
+          dsq.async = true;
+          dsq.src = "//" + shortname + ".disqus.com/embed.js";
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(dsq);
+        })();
+      } else {
+        // eslint-disable-next-line
+        DISQUS.reset({
+          reload: true,
+          config: function() {
+            this.page.identifier = identifier;
+            this.page.url = url;
+            this.page.title = title;
+          }
+        });
+      }
+    },
+    
     totheTop: function() {
       document.body.scrollTop = 0 ; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     },
+    
     getPage: function() {
       if (this.year === undefined) {
         return;
@@ -150,6 +209,10 @@ export default {
       fetch(htmlDocUri)
         .then(response => response.text())
         .then(responseText => this.articleHtmlSource = responseText);
+      
+      var uri = htmlDocUri.replace('blog_contents/', '')
+                     .replace('.html', '/');
+      this.address = this.domain + uri;
     }
   }
 }
