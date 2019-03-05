@@ -161,7 +161,7 @@ export default {
           vars_obj.type = "text/javascript";
           vars_obj.async = true;
           vars_obj.text = vars_text;
-          console.log(documentElementsByTagName("head")[0])
+          console.log(documentElementsByTagName("head")[0]);
           (
             document.getElementsByTagName("head")[0] ||
             document.getElementsByTagName("body")[0]
