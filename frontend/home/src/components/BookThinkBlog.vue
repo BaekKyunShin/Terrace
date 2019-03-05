@@ -102,7 +102,6 @@ export default {
       this.titleForMeta = title.innerHTML;
       this.author = author.innerHTML;
     }
-    console.log(this.address, '\n', this.domain, '\n', this.title);
     this.initDisqus(
       "bkshin",
       this.address.replace(this.domain, ""), // uri as an identifier
