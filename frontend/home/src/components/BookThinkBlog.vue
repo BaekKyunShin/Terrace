@@ -151,6 +151,7 @@ export default {
             'var disqus_title      = "' +
             title +
             '";\n' +
+            'var disqus_identifier = "' +
             identifier +
             '";\n' +
             'var disqus_url        = "' +
