@@ -125,7 +125,7 @@ export default {
     titleForMeta : "",
     articleHtmlSource : "",
     address : "",  // will have a permalink of the article
-    domain : "http://bkshin.com/bookThinkBlog",
+    domain : "https://bkshin.com/bookThinkBlog",
     }
   },
   watch: {
@@ -213,6 +213,7 @@ export default {
       var uri = htmlDocUri.replace('blog_contents/book_think/', '')
                      .replace('.html', '/');
       this.address = this.domain + uri;
+      console.log(this.address, '\n', this.domain, '\n', uri);
     }
   }
 }
