@@ -124,7 +124,7 @@ export default {
     titleForMeta : "",
     articleHtmlSource : "",
     address : "",  // will have a permalink of the article
-    domain : "https://bkshin.com/bookThinkBlog",
+    domain : "http://bkshin.com/bookThinkBlog",
     }
   },
   watch: {
