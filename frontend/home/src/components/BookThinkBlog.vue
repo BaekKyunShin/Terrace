@@ -102,7 +102,7 @@ export default {
       this.titleForMeta = title.innerHTML;
       this.author = author.innerHTML;
     }
-
+    console.log(this.address, '\n', this.domain, '\n', this.title);
     this.initDisqus(
       "bkshin",
       this.address.replace(this.domain, ""), // uri as an identifier
@@ -213,7 +213,6 @@ export default {
       var uri = htmlDocUri.replace('blog_contents/book_think/', '')
                      .replace('.html', '/');
       this.address = this.domain + uri;
-      console.log(this.address, '\n', this.domain, '\n', uri);
     }
   }
 }
