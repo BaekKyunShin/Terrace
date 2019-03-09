@@ -161,14 +161,19 @@ export default {
           vars_obj.type = "text/javascript";
           vars_obj.async = true;
           vars_obj.text = vars_text;
-          console.log(document.getElementsByTagName("head")[0]);
-          document.getElementsByTagName("head")[0].appendChild(vars_obj);
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(vars_obj); 
+          
           var dsq = document.createElement("script");
           dsq.type = "text/javascript";
           dsq.async = true;
-          dsq.src = "https://" + shortname + ".disqus.com/embed.js";
-          console.log(document.getElementsByTagName("head")[0]);
-          document.getElementsByTagName("head")[0].appendChild(dsq);
+          dsq.src = "//" + shortname + ".disqus.com/embed.js";
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(dsq);
         })();
       } else {
         // eslint-disable-next-line
