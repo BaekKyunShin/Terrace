@@ -13,6 +13,7 @@
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
       <hr>
+      <div id="disqus_thread"></div>
     </div>
     <div v-else>
       <div class="blog-list-element" v-for="i in index" :key="i">
