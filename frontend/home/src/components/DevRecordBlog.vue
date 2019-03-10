@@ -205,7 +205,7 @@ export default {
     title : this.$route.params.title2,
     articleHtmlSource : "",
     address : "",  // will have a permalink of the article
-    domain : "http://bkshin.com/devRecordBlog",
+    domain : "https://bkshin.com/devRecordBlog",
     }
   },
   watch: {
