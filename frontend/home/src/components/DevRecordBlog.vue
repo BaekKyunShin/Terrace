@@ -9,6 +9,7 @@
         <div id="article-content" v-html="articleHtmlSource"></div>
       </article>
       <hr>
+      <div id="disqus_thread"></div>
     </div>
     <div v-else>
       <div class="blog-list-element" v-for="i in index" :key="i">
@@ -80,10 +81,59 @@ export default {
   },
   
   methods: {
+    
+      initDisqus: function(shortname, identifier, title, url) {
+      //config
+      if (typeof DISQUS === "undefined") {
+        (async () => {
+          var vars_text =
+            'var disqus_shortname  = "' +
+            shortname +
+            '";\n' +
+            'var disqus_title      = "' +
+            title +
+            '";\n' +
+            'var disqus_identifier = "' +
+            identifier +
+            '";\n' +
+            'var disqus_url        = "' +
+            url +
+            '";\n';
+          var vars_obj = document.createElement("script");
+          vars_obj.type = "text/javascript";
+          vars_obj.async = true;
+          vars_obj.text = vars_text;
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(vars_obj);
+          var dsq = document.createElement("script");
+          dsq.type = "text/javascript";
+          dsq.async = true;
+          dsq.src = "//" + shortname + ".disqus.com/embed.js";
+          (
+            document.getElementsByTagName("head")[0] ||
+            document.getElementsByTagName("body")[0]
+          ).appendChild(dsq);
+        })();
+      } else {
+        // eslint-disable-next-line
+        DISQUS.reset({
+          reload: true,
+          config: function() {
+            this.page.identifier = identifier;
+            this.page.url = url;
+            this.page.title = title;
+          }
+        });
+      }
+    },
+    
     totheTop: function() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     },
+    
     getPage: function() {
       if (this.year === undefined) {
         return;
@@ -130,6 +180,13 @@ export default {
       this.titleForMeta = title.innerHTML;
     }
     
+    this.initDisqus(
+      "bkshin",
+      this.address.replace(this.domain, ""), // uri as an identifier
+      this.title,
+      this.address
+    );
+
     // Find all code block and apply syntax highlighting
     [].forEach.call(document.querySelectorAll('code'), function(el) {
       HighlightJS.highlightBlock(el);
@@ -146,7 +203,9 @@ export default {
     month : this.$route.params.month2,
     day : this.$route.params.day2,
     title : this.$route.params.title2,
-    articleHtmlSource : ""
+    articleHtmlSource : "",
+    address : "",  // will have a permalink of the article
+    domain : "http://bkshin.com/devRecordBlog",
     }
   },
   watch: {
