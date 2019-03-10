@@ -4,6 +4,7 @@
 
 라우팅(routing)이란 네트워크 안에서 통신 데이터를 보낼 경로를 선택하는 과정입니다. [(Reference1)](https://ko.wikipedia.org/wiki/%EB%9D%BC%EC%9A%B0%ED%8C%85) 예를 들어보겠습니다. 서울에서 부산까지 가는 길은 여러 개가 있습니다. "그중 이 경로를 통해서 서울에서 부산까지 가라!"라고 지정해주는 것이 라우팅입니다. 마찬가지로 블로그에는 여러 메뉴바가 있을 겁니다. 이 메뉴바를 클릭하면 이 페이지로 가고, 저 메뉴바를 클릭하면 저 페이지로 가라! 라고 지정을 해주는 것입니다.  
 
+### 블로그에 라우팅 적용
 terrace 디렉토리에서 아래와 같이 vue-router를 설치해줍니다.
 
 ```bash
@@ -13,7 +14,7 @@ npm install vue-router
 
  frontend/home/src 디렉토리의 App.vue를 아래와 같이 수정합니다. 코드를 먼저 나열한 뒤 마지막에 설명하겠습니다. 
 
-```javascript
+```django
 <template>
   <div id="app">
     <H1 class="blog-title"> Blog Example </H1>
@@ -51,7 +52,7 @@ export default {
 
 이해를 도모하고자 App.vue 전체 소스코드를 적어드렸습니다. 여기서 routing과 관련된 부분은 아래와 같습니다.
 
-```javascript
+```django
     <nav>
       <router-link class="menu-bar" to="/">Home</router-link>
       <router-link class="menu-bar" to="/about/">About</router-link>
@@ -60,7 +61,11 @@ export default {
     <router-view></router-view>
 ```
 
-기본적으로 router-link는 a태그로 렌더링이 됩니다. Home은 bkshin.com/으로, About은 bkshin.com/about/으로 Blog는 bkshin.com/blog/로 각각 라우팅이 됩니다. ```<router-view></router-view>```는 현재 라우트에 맞는 컴포넌트를 렌더링 시켜줍니다. 즉, 이 코드가 있어야 화면에 router-link가 보인다는 것입니다.
+기본적으로 router-link는 a태그로 렌더링이 됩니다. Home은 bkshin.com/으로, About은 bkshin.com/about/으로 Blog는 bkshin.com/blog/로 각각 라우팅이 됩니다.
+```django
+<router-view></router-view>
+```
+는 현재 라우트에 맞는 컴포넌트를 렌더링 시켜줍니다. 즉, 이 코드가 있어야 화면에 router-link가 보인다는 것입니다.
 
 
 
@@ -138,7 +143,7 @@ export default new Router({
 
 Main.vue
 
-```javascript
+```django
 <template>
   <div class="main">
     <p>This is Main Page!</p>
@@ -158,7 +163,7 @@ export default {
 
 About.vue
 
-```vue
+```django
 <template>
   <div class="about">
     <p>This is About Page!</p>
@@ -177,7 +182,7 @@ export default {
 
 Blog.vue
 
-```javascript
+```django
 <template>
   <div class="blog">
     <p>This is blog Page!</p>

@@ -1,10 +1,11 @@
 <h1 id="blog---16.-라우팅">BLOG - 16. 라우팅</h1>
 <h3 id="라우팅이란">라우팅이란?</h3>
 <p>라우팅(routing)이란 네트워크 안에서 통신 데이터를 보낼 경로를 선택하는 과정입니다. <a href="https://ko.wikipedia.org/wiki/%EB%9D%BC%EC%9A%B0%ED%8C%85">(Reference1)</a> 예를 들어보겠습니다. 서울에서 부산까지 가는 길은 여러 개가 있습니다. &quot;그중 이 경로를 통해서 서울에서 부산까지 가라!&quot;라고 지정해주는 것이 라우팅입니다. 마찬가지로 블로그에는 여러 메뉴바가 있을 겁니다. 이 메뉴바를 클릭하면 이 페이지로 가고, 저 메뉴바를 클릭하면 저 페이지로 가라! 라고 지정을 해주는 것입니다.</p>
+<h3 id="블로그에-라우팅-적용">블로그에 라우팅 적용</h3>
 <p>terrace 디렉토리에서 아래와 같이 vue-router를 설치해줍니다.</p>
 <pre class="bash"><code>npm install vue-router</code></pre>
 <p>frontend/home/src 디렉토리의 App.vue를 아래와 같이 수정합니다. 코드를 먼저 나열한 뒤 마지막에 설명하겠습니다.</p>
-<pre class="javascript"><code>&lt;template&gt;
+<pre class="django"><code>&lt;template&gt;
   &lt;div id=&quot;app&quot;&gt;
     &lt;H1 class=&quot;blog-title&quot;&gt; Blog Example &lt;/H1&gt;
     &lt;nav&gt;
@@ -38,13 +39,15 @@ export default {
 }
 &lt;/style&gt;</code></pre>
 <p>이해를 도모하고자 App.vue 전체 소스코드를 적어드렸습니다. 여기서 routing과 관련된 부분은 아래와 같습니다.</p>
-<pre class="javascript"><code>    &lt;nav&gt;
+<pre class="django"><code>    &lt;nav&gt;
       &lt;router-link class=&quot;menu-bar&quot; to=&quot;/&quot;&gt;Home&lt;/router-link&gt;
       &lt;router-link class=&quot;menu-bar&quot; to=&quot;/about/&quot;&gt;About&lt;/router-link&gt;
       &lt;router-link class=&quot;menu-bar&quot; to=&quot;/blog/&quot;&gt;Blog&lt;/router-link&gt;
     &lt;/nav&gt;
     &lt;router-view&gt;&lt;/router-view&gt;</code></pre>
-<p>기본적으로 router-link는 a태그로 렌더링이 됩니다. Home은 bkshin.com/으로, About은 bkshin.com/about/으로 Blog는 bkshin.com/blog/로 각각 라우팅이 됩니다. <code>&lt;router-view&gt;&lt;/router-view&gt;</code>는 현재 라우트에 맞는 컴포넌트를 렌더링 시켜줍니다. 즉, 이 코드가 있어야 화면에 router-link가 보인다는 것입니다.</p>
+<p>기본적으로 router-link는 a태그로 렌더링이 됩니다. Home은 bkshin.com/으로, About은 bkshin.com/about/으로 Blog는 bkshin.com/blog/로 각각 라우팅이 됩니다.</p>
+<pre class="django"><code>&lt;router-view&gt;&lt;/router-view&gt;</code></pre>
+<p>는 현재 라우트에 맞는 컴포넌트를 렌더링 시켜줍니다. 즉, 이 코드가 있어야 화면에 router-link가 보인다는 것입니다.</p>
 <p>main.js는 아래와 같이 수정합니다.</p>
 <pre class="javascript"><code>import Vue from &#39;vue&#39;
 import App from &#39;./App.vue&#39;
@@ -96,7 +99,7 @@ export default new Router({
 <p>앞서 설명드렸듯이 라우팅이란 경로를 지정해주는 작업이라 했습니다. 각 컴포넌트 (Main, About, Blog)별로 path를 지정해줍니다.</p>
 <p>이제, component 디렉토리안의 <code>Helloworld.vue</code>는 삭제해주시고, Main.vue, About.vue, Blog.vue를 만들어 줍니다.</p>
 <p>Main.vue</p>
-<pre class="javascript"><code>&lt;template&gt;
+<pre class="django"><code>&lt;template&gt;
   &lt;div class=&quot;main&quot;&gt;
     &lt;p&gt;This is Main Page!&lt;/p&gt;
     &lt;img alt=&quot;Vue log&quot; src=&quot;../assets/logo.png&quot;&gt;
@@ -112,7 +115,7 @@ export default {
 &lt;style scoped&gt;
 &lt;/style&gt;</code></pre>
 <p>About.vue</p>
-<pre class="vue"><code>&lt;template&gt;
+<pre class="django"><code>&lt;template&gt;
   &lt;div class=&quot;about&quot;&gt;
     &lt;p&gt;This is About Page!&lt;/p&gt;
   &lt;/div&gt;
@@ -127,7 +130,7 @@ export default {
 &lt;style scoped&gt;
 &lt;/style&gt;</code></pre>
 <p>Blog.vue</p>
-<pre class="javascript"><code>&lt;template&gt;
+<pre class="django"><code>&lt;template&gt;
   &lt;div class=&quot;blog&quot;&gt;
     &lt;p&gt;This is blog Page!&lt;/p&gt;
   &lt;/div&gt;
