@@ -30,6 +30,7 @@ const productionPlugins = [
 "/bookThinkBlog/2017/06/27/book-ryusiwha",
 "/bookThinkBlog/2017/05/18/book-existentialism",
 "/bookThinkBlog/2017/04/03/book-stranger",
+"/devRecordBlog/2019/03/17/data-DAND",
 "/devRecordBlog/2019/03/10/blog-routing",
 "/devRecordBlog/2019/03/03/blog-blogSettingFinish",
 "/devRecordBlog/2019/02/25/blog-s3DeployRedirect",
