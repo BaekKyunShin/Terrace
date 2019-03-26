@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><title>bkshin</title><link href="/css/chunk-46dc723c.bb27ba0f.css" rel="prefetch"><link href="/css/chunk-713f47a3.0ab79fc8.css" rel="prefetch"><link href="/js/chunk-46dc723c.986439c2.js" rel="prefetch"><link href="/js/chunk-713f47a3.56b75bfa.js" rel="prefetch"><link href="/css/app.c451e2bf.css" rel="preload" as="style"><link href="/js/app.afcc6bb9.js" rel="preload" as="script"><link href="/js/chunk-vendors.a4836192.js" rel="preload" as="script"><link href="/css/app.c451e2bf.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-46dc723c.bb27ba0f.css"><script charset="utf-8" src="/js/chunk-46dc723c.986439c2.js"></script><meta charset="utf-8" data-vue-meta="true"><meta property="og:title" content="data-dataAnalysisProcess :: bkshin" data-vmid="og:title" data-vue-meta="true"><meta property="og:description" content="Thank you for reading my article " data-vmid="og:description" data-vue-meta="true"><script type="text/javascript" async="">var disqus_shortname  = "bkshin";
+var disqus_title      = "data-dataAnalysisProcess";
+var disqus_identifier = "";
+var disqus_url        = "";
+</script><script type="text/javascript" async="" src="//bkshin.disqus.com/embed.js"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.9974049bf7b0591e5d4f055cb67f3ee3.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.880980e048a2432334f13013030456ac.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.4180262f1aa52e0f0340aac9fc52a8d8.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"></head><body><noscript></noscript><div id="app"><h1 class="blog-title"> 귀퉁이 서재</h1><nav><a href="/" class="menu-bar router-link-active">홈</a><a href="/about/" class="menu-bar">소개</a><a href="/bookThinkBlog/" class="menu-bar">책과 사유</a><a href="/devRecordBlog/" class="menu-bar router-link-active">개발과 기록</a></nav><div data-v-22e25c9b="" id="blog"><div data-v-22e25c9b="" id="blog-contents-element"><article data-v-22e25c9b=""><div data-v-22e25c9b="" class="inner-title-container"><h1 data-v-22e25c9b="" id="inner-title">DATA - 3. Data Analysis Process</h1><div data-v-22e25c9b="" id="inner-date">2019.03.27</div></div><div data-v-22e25c9b="" id="article-content"><h1 id="data---3.-data-analysis-process" style="display: none;">DATA - 3. Data Analysis Process</h1>
+<p>데이터 분석 프로세스는 아래와 같이 총 5단계로 진행됩니다.</p>
+<p>Ask Questions - Wrangle Data (gather, access, clean) - Perform EDA (Exploratory Data Analysis) - Draw conclusions (or even make predictions) - Communicate your results</p>
+<ol type="1">
+<li><p><strong>Ask Questions</strong><br> 주어진 데이터를 통해 어떤 분석을 할 수 있을지 질문해보는 단계입니다.</p></li>
+<li><p><strong>Wrangle Data (gather, access, clean)</strong><br> 데이터를 수집하고, 데이터에 접근하고, 데이터 전처리를 하는 단계입니다. 데이터를 수집할 수 있는 방법은 여러가지가 있습니다. 웹 상에서 파일로 다운을 받거나, API를 통해 받아오거나, Web Scraping을 통해 가져오거나, 자체 DB에 저장된 파일을 SQL 등을 통해 받아올 수 있습니다. 데이터를 수집했으면 접근을 해야합니다. CSV 파일 등으로 열어볼 수 있겠죠. 데이터에 접근해보면 이상한 값들이 많이 있을 겁니다. Null 인 값, Type이 맞지 않는 값, 중복된 값 등... 이런 이상한 값들을 클리닝하는 작업이 필요합니다. Null 값은 평균 값으로 대체를 한다던지, 필요 없이 중복된 값은 제거한다던지, Type을 서로 맞춘다던지 해서요.<br> 물론 실제 현업에서는 이 클리닝 작업, 전처리 작업이 가장 복잡하다고 합니다. DAND 과정에서는 기본적으로 CSV 형태의 데이터를 클리닝하지만, 실제 현업에서는 CSV 형태로 담길 수 없을 정도로 더러운(?) 값들이 많이 있을 겁니다. 그 데이터를 CSV값에 잘 담아내고도 또 여러차례 손을 봐야겠죠. 어쨋든 본 과정은 기본 과정이므로 아주 아주 아주 간단한 형태의 클리닝 작업만 하는 것 같습니다.</p></li>
+<li><p><strong>Perform EDA (Exploratory Data Anaysis, 탐색적 데이터 분석)</strong><br> 탐색적 데이터 분석이란 데이터를 통해 중요한 의미와 정보를 찾아내는 방법론입니다. 주로 시각화 그래프를 통해 이뤄집니다. 시각화 그래프를 통해 중요한 의미와 정보, 인사이트를 발견해내는 작업을 보통 의미합니다만, 데이터 분석을 위한 철학, 마인드라고도 볼 수 있습니다. 어떤 데이터를 분석할지, 데이터를 어떻게 바라볼지, 어떻게 해석할지 등의 마인드 셋 등이 이에 해당합니다. <a href="https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm">(Reference1)</a></p></li>
+<li><p><strong>Draw conclusions (or even make predictions)</strong><br> 분석을 통하여 결과를 도출하는 단계입니다. 이 단계에서는 통계도 필요할 것입니다. 본 과정에서는 통계를 간단히만 다룰 것 같습니다. 나중에 기회가 된다면 데이터 분석을 위한 통계도 따로 정리하여 올리겠습니다.</p></li>
+<li><p><strong>Communicate your results</strong><br> 결과를 리포팅 하는 단계입니다. 데이터분석가에게 데이터분석도 중요하지만 도출된 결과를 타인에게 잘 전달하는 것, 리포트로 잘 정리하는 것도 중요할 것입니다.</p></li>
+</ol>
+<h3 id="pandas-기초-문법">Pandas 기초 문법</h3>
+<p>판다스는 데이터 분석을 위한 파이썬 라이브러리입니다.</p>
+<p>Pandas 공식 Document: <a href="http://pandas.pydata.org/pandas-docs/stable/">(Reference2)</a></p>
+<p>10 Minutes to pandas: <a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">(Reference3)</a></p>
+<p>기초 문법을 먼저 익히려면 10 Minutes을 보시면 됩니다. 아래는 제가 기억하려고 메모용 적어둔 것이니 무시하셔도 됩니다.</p>
+<pre class="python"><code class="hljs">df.info() <span class="hljs-comment"># value 갯수, nullable, type 요약</span>
+df.unique() <span class="hljs-comment"># unique 값 갯수</span>
+df.describe() <span class="hljs-comment"># 통계 값</span>
+df.loc[:, <span class="hljs-string">'id'</span>:<span class="hljs-string">'name'</span>] <span class="hljs-comment"># index 명, columns 명으로 값 조회</span>
+df.iloc[:<span class="hljs-number">3</span>, <span class="hljs-number">4</span>:<span class="hljs-number">5</span>] <span class="hljs-comment"># index로 값 조회</span>
+
+<span class="hljs-comment"># null 값을 평균으로 채우기</span>
+mean = df[<span class="hljs-string">'column'</span>].mean()
+df[<span class="hljs-string">'column'</span>] = df[<span class="hljs-string">'column'</span>].fillna(mean)
+
+df.to_csv(<span class="hljs-string">'data_means.csv'</span>, index=<span class="hljs-keyword">False</span>) <span class="hljs-comment"># index제외하고 csv 파일로 저장</span>
+
+sum(df.duplicated()) <span class="hljs-comment"># 중복된 행의 갯수</span>
+
+df.drop_duplicates(inplace=<span class="hljs-keyword">True</span>) <span class="hljs-comment"># 중복된 행 제거, 현재 df에 적용</span>
+
+df[<span class="hljs-string">'timestamp'</span>] = pd.to_datetime(df[<span class="hljs-string">'timestamp'</span>]) <span class="hljs-comment"># 데이터 타입 변경, dataFrame에서 object는 string 타입임</span>
+
+<span class="hljs-comment"># 새로운 column labels 지정</span>
+new_labels [ <span class="hljs-string">'id'</span>, <span class="hljs-string">'name'</span>, <span class="hljs-string">'birthday'</span>]
+df.columns = new_labels
+
+% matplotlib inline
+
+<span class="hljs-comment"># dataFrame histogram</span>
+df.hist(figsize=(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>));
+
+<span class="hljs-comment"># series histogram, 아래 두개는 같은 기능</span>
+df[<span class="hljs-string">'age'</span>].hist();
+df[<span class="hljs-string">'age'</span>].plot(kind=<span class="hljs-string">'hist'</span>);
+
+<span class="hljs-comment"># age columns안에서 unique value의 갯수 총합</span>
+df[<span class="hljs-string">'age'</span>].value_counts()
+
+<span class="hljs-comment"># 위 데이터로 bar 차트 그리기</span>
+df[<span class="hljs-string">'age'</span>].value_counts().plot(kind=<span class="hljs-string">'bar'</span>, figzise=(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>));
+
+pd.plotting.scatter_matrix(df, figsize=(<span class="hljs-number">15</span>,<span class="hljs-number">15</span>));
+
+<span class="hljs-comment"># x, y column을 지정하고 scatter 그래프 그리기</span>
+df.plot(x=<span class="hljs-string">'age'</span>, y=<span class="hljs-string">'height'</span>, kind=<span class="hljs-string">'scatter'</span>);
+
+<span class="hljs-comment"># diagnosis == M 인 행으로 구성된 df_m 생성</span>
+df_m = df[df[<span class="hljs-string">'diagnosis'</span>] == <span class="hljs-string">'M'</span>]
+<span class="hljs-comment"># cf. df[df['week'] &gt;= '2017-12-01']</span></code></pre>
+<h2 id="reference">Reference</h2>
+<p><a href="https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm">Reference1 (https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm)</a><br><a href="http://pandas.pydata.org/pandas-docs/stable/">Reference2 (http://pandas.pydata.org/pandas-docs/stable/)</a><br><a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">Reference3 (http://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)</a></p>
+</div></article><hr data-v-22e25c9b=""><div data-v-22e25c9b="" id="disqus_thread"><iframe id="dsq-app9527" name="dsq-app9527" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="https://disqus.com/embed/comments/?base=default&amp;f=bkshin&amp;t_i=&amp;t_u=http%3A%2F%2Flocalhost%3A8000%2FdevRecordBlog%2F2019%2F03%2F27%2Fdata-dataAnalysisProcess&amp;t_e=data-dataAnalysisProcess&amp;t_d=bkshin&amp;t_t=data-dataAnalysisProcess&amp;s_o=default&amp;d_m=0#version=3cd87e0f949a3290918feaf8a303966c" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;"></iframe></div></div></div></div><script src="/js/chunk-vendors.a4836192.js"></script><script src="/js/app.afcc6bb9.js"></script><iframe style="display: none;"></iframe></body></html>
