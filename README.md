@@ -14,17 +14,17 @@ Vue.js, Go Lang, HTML, CSS, JavaScript
 - Vue-cli 3.0
 
 ## Blog development history
-Network port forwarding  
-Development environment setting (package install, firewall, permission, project directory)  
-NPM(Node Package Manager)  
-Web server setting  
-Routing  
-AWS EC2, S3, Cloudfront, IAM  
-SSH connection  
-GitHook  
-Deploy Automation wih Shell Script, make file  
-Edit JSON code automatically wih Go Lang  
-Redirect HTTP to HTTPS  
-Prerendering  
-Code Highlight with Highlight.js  
-Trailing Slash  
+- Network port forwarding  
+- Development environment setting (package install, firewall, permission, project directory)  
+- NPM(Node Package Manager)  
+- Web server setting  
+- Routing  
+- AWS EC2, S3, Cloudfront, IAM  
+- SSH connection  
+- GitHook  
+- Deploy Automation wih Shell Script, make file  
+- Edit JSON code automatically wih Go Lang  
+- Redirect HTTP to HTTPS  
+- Prerendering  
+- Code Highlight with Highlight.js  
+- Trailing Slash  
