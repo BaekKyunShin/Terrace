@@ -3,6 +3,8 @@
 ## Blog url
 https://bkshin.com/
 
+![MyBlog](https://cdn.bkshin.com/tistory/DAND/MyBlog.gif)
+
 ## Installation and Development
 https://bkshin.tistory.com/category/Blog%20Project
 
