@@ -4,7 +4,7 @@
 ![MyBlog](https://s3.ap-northeast-2.amazonaws.com/cdn.bkshin.com/tistory/DAND/MyBlog.gif)
 
 ## Installation and Development
-https://bkshin.tistory.com/category/Blog%20Project
+https://bkshin.tistory.com/category/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
 
 ## Programming Language & Framework
 Vue.js, Go Lang, HTML, CSS, JavaScript
