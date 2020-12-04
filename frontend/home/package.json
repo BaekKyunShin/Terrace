@@ -10,7 +10,7 @@
   "dependencies": {
     "ajv-keywords": "^3.2.0",
     "highlight": "^0.2.4",
-    "highlight.js": "^9.13.1",
+    "highlight.js": "^10.4.1",
     "http-server": "^0.11.1",
     "vue": "^2.5.17",
     "vue-meta": "^1.5.8",
